@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Duke {
     public static void main(String[] args) {
         String logo = " ____        _        \n"
@@ -13,5 +15,22 @@ public class Duke {
         System.out.println(line);
         System.out.println("Bye. Hope to see you again soon!");
         System.out.println(line);
+        System.out.println();
+        Scanner sc = new Scanner(System.in);
+        String ls = sc.nextLine();
+        System.out.println(line);
+        System.out.println("list");
+        System.out.println(line);
+        System.out.println();
+        String blah = sc.nextLine();
+        System.out.println(line);
+        System.out.println("blah");
+        System.out.println(line);
+        System.out.println();
+        String bye = sc.nextLine();
+        System.out.println(line);
+        System.out.println("Bye. Hope to see you again soon!");
+        System.out.println(line);
+
     }
 }
