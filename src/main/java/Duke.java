@@ -13,24 +13,34 @@ public class Duke {
         System.out.println("Hello! I'm Duke");
         System.out.println("What can I do for you?");
         System.out.println(line);
-        System.out.println("Bye. Hope to see you again soon!");
-        System.out.println(line);
         System.out.println();
         Scanner sc = new Scanner(System.in);
         String ls = sc.nextLine();
+        //System.out.println(ls.equals("list"));
+        String[] list = new String[100];
+        for (int i = 0; i < 100; i++) {
+            if (ls.equals("list") == false) {
+                list[i] = ls;
+                System.out.println(line);
+                System.out.println("added: " + list[i]);
+                System.out.println(line);
+                System.out.println();
+            } else {
+                break;
+            }
+            ls = sc.nextLine();
+        }
         System.out.println(line);
-        System.out.println("list");
-        System.out.println(line);
-        System.out.println();
-        String blah = sc.nextLine();
-        System.out.println(line);
-        System.out.println("blah");
+        for (int i = 0; i < 100; i++) {
+            if (list[i] != null) {
+                System.out.println((i + 1) + "." + list[i]);
+            }
+        }
         System.out.println(line);
         System.out.println();
         String bye = sc.nextLine();
         System.out.println(line);
         System.out.println("Bye. Hope to see you again soon!");
         System.out.println(line);
-
     }
 }
