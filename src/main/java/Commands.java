@@ -5,8 +5,9 @@ public class Commands {
     public static ArrayList<Task> tasks = new ArrayList<>();
     public static int numberOfTasks = 0;
     public static int completedTasks = 0;
+    public static final Scanner scan = new Scanner(System.in);
     public static boolean commandInputs() {
-        final Scanner scan = new Scanner(System.in);
+
         String scannedInput = scan.nextLine();
         String[] commandInput = scannedInput.split(" ");
         switch (commandInput[0]) {
