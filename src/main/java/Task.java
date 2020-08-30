@@ -1,5 +1,6 @@
 public class Task {
     protected String description;
+    protected String taskType;
     protected boolean isDone;
 
     public Task(String description) {
@@ -13,5 +14,9 @@ public class Task {
 
     public void markAsDone() {
         isDone = true;
+    }
+
+    public String getTaskType() {
+        return "[" + this.taskType + "]";
     }
 }
