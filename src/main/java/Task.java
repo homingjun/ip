@@ -23,7 +23,7 @@ public class Task {
         return (isDone ? "✓" : "✘");
     }
 
-    /*
+    /**
      * Sets the completion status of the task as completed.
      */
     public void markAsDone() {
