@@ -25,19 +25,18 @@
     2.[E][✘] SEP Talk (at: 8pm)
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
-    Ok I add this task to ur list liao:
-    [D][✘] Finish Repl assignments (by: 11pm)
-    Now you have 3 more tasks to complete. Good luck!
-    ―――――――――――――――――――――――――――――――――――――――――――――
-    ―――――――――――――――――――――――――――――――――――――――――――――
-    U haven't done any tasks yet... U shud start soon!
-    1.[T][✘] eat breakfast
-    2.[E][✘] SEP Talk (at: 8pm)
-    3.[D][✘] Finish Repl assignments (by: 11pm)
-    ―――――――――――――――――――――――――――――――――――――――――――――
-    ―――――――――――――――――――――――――――――――――――――――――――――
     Congrats on completing this task! U damn ups :D
     [✓]  eat breakfast
+    ―――――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――――
+    U still got some tasks left to do. Jia you!
+    1.[T][✓] eat breakfast
+    2.[E][✘] SEP Talk (at: 8pm)
+    ―――――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――――
+    Ok I add this task to ur list liao:
+    [D][✘] Finish Repl assignments (by: 11pm)
+    Now you have 2 more tasks to complete. Good luck!
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
     U still got some tasks left to do. Jia you!
@@ -50,7 +49,7 @@
     [✓]  SEP Talk (at: 8pm)
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
-    Wah u finish all ur tasks! Nice la!
+    U still got some tasks left to do. Jia you!
     1.[T][✓] eat breakfast
     2.[E][✓] SEP Talk (at: 8pm)
     3.[D][✘] Finish Repl assignments (by: 11pm)
@@ -60,7 +59,7 @@
     [✓]  Finish Repl assignments (by: 11pm)
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
-    Wah u finish all ur tasks! Nice la!
+    Wah u finished all ur tasks! Nice la!
     1.[T][✓] eat breakfast
     2.[E][✓] SEP Talk (at: 8pm)
     3.[D][✓] Finish Repl assignments (by: 11pm)
