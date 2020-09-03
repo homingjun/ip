@@ -19,7 +19,7 @@ public class Todo extends Task {
      * @param numberOfTasks number of tasks in the list
      * @return newly added task in the list and the number of remaining tasks to complete
      */
-    public static String printToDo(ArrayList<Task> tasks, String userInput, int numberOfTasks, int remainingTasks) {
+    public static String printTodo(ArrayList<Task> tasks, String userInput, int numberOfTasks, int remainingTasks) {
         String split = userInput.substring(4);
         tasks.add(new Todo(split));
         return "    Ok I add this task to ur list liao:\n" + "    " + tasks.get(numberOfTasks - 1).getTaskType()

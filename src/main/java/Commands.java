@@ -25,7 +25,7 @@ public class Commands {
         case "todo":
             numberOfTasks++;
             remainingTasks = numberOfTasks - completedTasks;
-            PrintLine.printLine(Todo.printToDo(tasks, userInput, numberOfTasks, remainingTasks));
+            PrintLine.printLine(Todo.printTodo(tasks, userInput, numberOfTasks, remainingTasks));
             break;
         case "deadline":
             numberOfTasks++;
