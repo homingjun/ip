@@ -35,14 +35,14 @@
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
     Ok I add this task to ur list liao:
-    [D][✘] Finish Repl assignments (by: 11pm)
+    [D][✘] Finish Repl assignments (by: Sunday 11pm)
     Now you have 2 more tasks to complete. Good luck!
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
     U still got some tasks left to do. Jia you!
     1.[T][✓] eat breakfast
     2.[E][✘] SEP Talk (at: 8pm)
-    3.[D][✘] Finish Repl assignments (by: 11pm)
+    3.[D][✘] Finish Repl assignments (by: Sunday 11pm)
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
     Congrats on completing this task! U damn ups :D
@@ -52,17 +52,20 @@
     U still got some tasks left to do. Jia you!
     1.[T][✓] eat breakfast
     2.[E][✓] SEP Talk (at: 8pm)
-    3.[D][✘] Finish Repl assignments (by: 11pm)
+    3.[D][✘] Finish Repl assignments (by: Sunday 11pm)
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
     Congrats on completing this task! U damn ups :D
-    [✓]  Finish Repl assignments (by: 11pm)
+    [✓]  Finish Repl assignments (by: Sunday 11pm)
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
     Wah u finished all ur tasks! Nice la!
     1.[T][✓] eat breakfast
     2.[E][✓] SEP Talk (at: 8pm)
-    3.[D][✓] Finish Repl assignments (by: 11pm)
+    3.[D][✓] Finish Repl assignments (by: Sunday 11pm)
+    ―――――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――――
+    Invalid input. Please enter again
     ―――――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――――
     Thank you for using me! See u again soon ya :)

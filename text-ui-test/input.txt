@@ -5,10 +5,11 @@ event SEP Talk /at 8pm
 list
 done 1
 list
-deadline Finish Repl assignments /by 11pm
+deadline Finish Repl assignments /by Sunday 11pm
 list
 done 2
 list
 done 3
 list
+not a valid input
 bye
