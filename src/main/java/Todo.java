@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
-public class Deadlines extends Task {
+public class Todo extends Task {
     /**
-     * Sets the task description and it's task type to Deadlines.
+     * Sets the task description and it's task type to Todo.
      *
      * @param description description of the task
      */
-    public Deadlines(String description) {
-        super(" " + description + ")");
-        this.taskType = "D";
+    public Todo(String description) {
+        super(description);
+        this.taskType = "T";
     }
 
     /**
@@ -19,12 +19,11 @@ public class Deadlines extends Task {
      * @param numberOfTasks number of tasks in the list
      * @return newly added task in the list and the number of remaining tasks to complete
      */
-    public static String printDeadline(ArrayList<Task> tasks, String userInput, int numberOfTasks, int remainingTasks) {
-        String deadline = userInput.substring(9).replace("/by","(by:");
-        tasks.add(new Deadlines(deadline));
-
+    public static String printToDo(ArrayList<Task> tasks, String userInput, int numberOfTasks, int remainingTasks) {
+        String split = userInput.substring(4);
+        tasks.add(new Todo(split));
         return "    Ok I add this task to ur list liao:\n" + "    " + tasks.get(numberOfTasks - 1).getTaskType()
-                + "[" + tasks.get(numberOfTasks - 1).getStatusIcon() + "] " + deadline + ")" + "\n"
+                + "[" + tasks.get(numberOfTasks - 1).getStatusIcon() + "]" + split + "\n"
                 + "    Now you have " + (remainingTasks) + " more tasks to complete. Good luck!\n";
     }
 }

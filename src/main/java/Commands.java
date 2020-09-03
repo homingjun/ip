@@ -14,40 +14,40 @@ public class Commands {
      *
      * @return boolean value
      */
-    public static boolean commandInputs() {
+    public static boolean getCommandInput() {
         String userInput = scan.nextLine();
         String[] commandInput = userInput.split(" ");
         switch (commandInput[0]) {
         case "list":
             PrintLine.printLine(PrintList.printListDescription(numberOfTasks, completedTasks)
                     + PrintList.printListItems(tasks, numberOfTasks));
-            return true;
+            break;
         case "todo":
             numberOfTasks++;
             remainingTasks = numberOfTasks - completedTasks;
-            PrintLine.printLine(ToDo.printToDo(tasks, userInput, numberOfTasks, remainingTasks));
-            return true;
+            PrintLine.printLine(Todo.printToDo(tasks, userInput, numberOfTasks, remainingTasks));
+            break;
         case "deadline":
             numberOfTasks++;
             remainingTasks = numberOfTasks - completedTasks;
-            PrintLine.printLine(Deadlines.printDeadline(tasks, userInput, numberOfTasks, remainingTasks));
-            return true;
+            PrintLine.printLine(Deadline.printDeadline(tasks, userInput, numberOfTasks, remainingTasks));
+            break;
         case "event":
             numberOfTasks++;
             remainingTasks = numberOfTasks - completedTasks;
-            PrintLine.printLine(Events.printEvent(tasks, userInput, numberOfTasks, remainingTasks));
-            return true;
+            PrintLine.printLine(Event.printEvent(tasks, userInput, numberOfTasks, remainingTasks));
+            break;
         case "done":
             completedTasks++;
             PrintLine.printLine(PrintList.completeTask(tasks, userInput));
-            return true;
+            break;
         case "bye":
             PrintLine.printLine("    Thank you for using me! See u again soon ya :)\n");
-            break;
+            return false;
         default:
             PrintLine.printLine("    Invalid input. Please enter again\n");
-            return true;
+            break;
         }
-        return false;
+        return true;
     }
 }

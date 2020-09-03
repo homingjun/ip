@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
-public class ToDo extends Task {
+public class Event extends Task {
     /**
-     * Sets the task description and it's task type to ToDo.
+     * Sets the task description and it's task type to Events.
      *
      * @param description description of the task
      */
-    public ToDo(String description) {
-        super(description);
-        this.taskType = "T";
+    public Event(String description) {
+        super(description + ")");
+        this.taskType = "E";
     }
 
     /**
@@ -16,14 +16,14 @@ public class ToDo extends Task {
      *
      * @param tasks a list used to store the tasks
      * @param userInput user input
-     * @param numberOfTasks number of tasks in the list
+     * @param numberOfTasks number of tasks in the last
      * @return newly added task in the list and the number of remaining tasks to complete
      */
-    public static String printToDo(ArrayList<Task> tasks, String userInput, int numberOfTasks, int remainingTasks) {
-        String split = userInput.substring(4);
-        tasks.add(new ToDo(split));
+    public static String printEvent(ArrayList<Task> tasks, String userInput, int numberOfTasks, int remainingTasks) {
+        String event = userInput.substring(5).replace("/at","(at:");
+        tasks.add(new Event(event));
         return "    Ok I add this task to ur list liao:\n" + "    " + tasks.get(numberOfTasks - 1).getTaskType()
-                + "[" + tasks.get(numberOfTasks - 1).getStatusIcon() + "]" + split + "\n"
+                + "[" + tasks.get(numberOfTasks - 1).getStatusIcon() + "]" + event + ")" + "\n"
                 + "    Now you have " + (remainingTasks) + " more tasks to complete. Good luck!\n";
     }
 }
