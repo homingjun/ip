@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class Event extends Task {
+    public static final String ADD_LIAO = "    Ok I add this task to ur list liao:\n";
+
     /**
      * Sets the task description and it's task type to Events.
      *
@@ -22,8 +24,9 @@ public class Event extends Task {
     public static String printEvent(ArrayList<Task> tasks, String userInput, int numberOfTasks, int remainingTasks) {
         String event = userInput.substring(5).replace("/at","(at:");
         tasks.add(new Event(event));
-        return "    Ok I add this task to ur list liao:\n" + "    " + tasks.get(numberOfTasks - 1).getTaskType()
-                + "[" + tasks.get(numberOfTasks - 1).getStatusIcon() + "]" + event + ")" + "\n"
-                + "    Now you have " + (remainingTasks) + " more tasks to complete. Good luck!\n";
+        String taskType = "    " + tasks.get(numberOfTasks - 1).getTaskType();
+        String statusIcon = "[" + tasks.get(numberOfTasks - 1).getStatusIcon() + "]" + event + ")" + "\n";
+        String tasksLeft = "    Now you have " + (remainingTasks) + " more tasks to complete. Good luck!\n";
+        return ADD_LIAO + taskType + statusIcon + tasksLeft;
     }
 }

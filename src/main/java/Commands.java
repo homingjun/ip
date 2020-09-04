@@ -6,7 +6,7 @@ public class Commands {
     public static int numberOfTasks = 0;
     public static int completedTasks = 0;
     public static int remainingTasks;
-    public static final Scanner scan = new Scanner(System.in);
+    public static final Scanner SCAN = new Scanner(System.in);
 
     /**
      * Prints the respective lines or statements based on the commands input by the user.
@@ -15,7 +15,7 @@ public class Commands {
      * @return boolean value
      */
     public static boolean getCommandInput() {
-        String userInput = scan.nextLine();
+        String userInput = SCAN.nextLine();
         String[] commandInput = userInput.split(" ");
         switch (commandInput[0]) {
         case "list":
@@ -39,13 +39,13 @@ public class Commands {
             break;
         case "done":
             completedTasks++;
-            PrintLine.printLine(PrintList.completeTask(tasks, userInput));
+            PrintLine.printLine(Task.completeTask(tasks, userInput));
             break;
         case "bye":
-            PrintLine.printLine("    Thank you for using me! See u again soon ya :)\n");
+            PrintLine.printLine(Bye.sayGoodbye());
             return false;
         default:
-            PrintLine.printLine("    Invalid input. Please enter again\n");
+            PrintLine.printLine(InvalidInput.printInvalidInput());
             break;
         }
         return true;

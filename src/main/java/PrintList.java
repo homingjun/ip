@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 
 public class PrintList {
+    public static final String EMPTY_LIST = "    Your list still empty eh please add sth leh\n";
+    public static final String ALL_TASKS_COMPLETED = "    Wah u finished all ur tasks! Nice la!\n";
+    public static final String NO_TASKS_COMPLETED = "    U haven't done any tasks yet... U shud start soon!\n";
+    public static final String SOME_TASKS_COMPLETED = "    U still got some tasks left to do. Jia you!\n";
+
     /**
      * Returns the respective list description based on the number of tasks and completed tasks
      *
@@ -10,13 +15,13 @@ public class PrintList {
      */
     public static String printListDescription(int numberOfTasks, int completedTasks) {
         if (numberOfTasks == 0) {
-            return "    Your list still empty eh please add sth leh\n";
+            return EMPTY_LIST;
         } else if (completedTasks == numberOfTasks) {
-            return "    Wah u finished all ur tasks! Nice la!\n";
+            return ALL_TASKS_COMPLETED;
         } else if (completedTasks == 0) {
-            return "    U haven't done any tasks yet... U shud start soon!\n";
+            return NO_TASKS_COMPLETED;
         } else {
-            return "    U still got some tasks left to do. Jia you!\n";
+            return SOME_TASKS_COMPLETED;
         }
     }
 
@@ -34,20 +39,5 @@ public class PrintList {
                     + tasks.get(i).getStatusIcon() + "]" + tasks.get(i).description + "\n";
         }
         return listItems;
-    }
-
-    /**
-     * Returns the confirmation of completing a task.
-     *
-     * @param tasks a list used to store the tasks
-     * @param scannedInput user input
-     * @return completion of task
-     */
-    public static String completeTask(ArrayList<Task> tasks, String scannedInput) {
-        String[] split = scannedInput.split(" ");
-        tasks.get(Integer.parseInt(split[1]) - 1).markAsDone();
-        return "    Congrats on completing this task! U damn ups :D\n"
-                + "    [" + tasks.get(Integer.parseInt(split[1]) - 1).getStatusIcon() + "] "
-                + tasks.get(Integer.parseInt(split[1]) - 1).description + "\n";
     }
 }
