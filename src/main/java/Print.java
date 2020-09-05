@@ -1,10 +1,20 @@
 import java.util.ArrayList;
 
-public class PrintList {
+public class Print {
     public static final String EMPTY_LIST = "    Your list still empty eh please add sth leh\n";
     public static final String ALL_TASKS_COMPLETED = "    Wah u finished all ur tasks! Nice la!\n";
     public static final String NO_TASKS_COMPLETED = "    U haven't done any tasks yet... U shud start soon!\n";
     public static final String SOME_TASKS_COMPLETED = "    U still got some tasks left to do. Jia you!\n";
+    public static final String line = "    ―――――――――――――――――――――――――――――――――――――――――――――\n";
+
+    /**
+     * Prints a line wrap around the text.
+     *
+     * @param text content getting printed
+     */
+    public static void printLine(String text) {
+        System.out.print(line + text + line);
+    }
 
     /**
      * Returns the respective list description based on the number of tasks and completed tasks

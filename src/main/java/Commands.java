@@ -7,6 +7,8 @@ public class Commands {
     public static int completedTasks = 0;
     public static int remainingTasks;
     public static final Scanner SCAN = new Scanner(System.in);
+    public static final String INVALID_INPUT = "    Invalid input. Please enter again\n";
+    public static final String BYE = "    Thank you for using me! See u again soon ya :)\n";
 
     /**
      * Prints the respective lines or statements based on the commands input by the user.
@@ -19,35 +21,53 @@ public class Commands {
         String[] commandInput = userInput.split(" ");
         switch (commandInput[0]) {
         case "list":
-            PrintLine.printLine(PrintList.printListDescription(numberOfTasks, completedTasks)
-                    + PrintList.printListItems(tasks, numberOfTasks));
+            Print.printLine(Print.printListDescription(numberOfTasks, completedTasks)
+                    + Print.printListItems(tasks, numberOfTasks));
             break;
         case "todo":
             numberOfTasks++;
             remainingTasks = numberOfTasks - completedTasks;
-            PrintLine.printLine(Todo.printTodo(tasks, userInput, numberOfTasks, remainingTasks));
+            Print.printLine(Todo.printTodo(tasks, userInput, numberOfTasks, remainingTasks));
             break;
         case "deadline":
             numberOfTasks++;
             remainingTasks = numberOfTasks - completedTasks;
-            PrintLine.printLine(Deadline.printDeadline(tasks, userInput, numberOfTasks, remainingTasks));
+            Print.printLine(Deadline.printDeadline(tasks, userInput, numberOfTasks, remainingTasks));
             break;
         case "event":
             numberOfTasks++;
             remainingTasks = numberOfTasks - completedTasks;
-            PrintLine.printLine(Event.printEvent(tasks, userInput, numberOfTasks, remainingTasks));
+            Print.printLine(Event.printEvent(tasks, userInput, numberOfTasks, remainingTasks));
             break;
         case "done":
             completedTasks++;
-            PrintLine.printLine(Task.completeTask(tasks, userInput));
+            Print.printLine(Task.completeTask(tasks, userInput));
             break;
         case "bye":
-            PrintLine.printLine(Bye.sayGoodbye());
+            Print.printLine(sayGoodbye());
             return false;
         default:
-            PrintLine.printLine(InvalidInput.printInvalidInput());
+            Print.printLine(invalidInput());
             break;
         }
         return true;
+    }
+
+    /**
+     * returns goodbye greeting from the bot.
+     *
+     * @return goodbye
+     */
+    public static String sayGoodbye() {
+        return BYE;
+    }
+
+    /**
+     * returns a prompt to re-enter the input when an invalid input is entered.
+     *
+     * @return invalid input warning
+     */
+    public static String invalidInput() {
+        return INVALID_INPUT;
     }
 }
