@@ -50,10 +50,10 @@ public class Task {
      * @return completion of task
      */
     public static String completeTask(ArrayList<Task> tasks, String scannedInput) {
-        String[] split = scannedInput.split(" ");
-        tasks.get(Integer.parseInt(split[1]) - 1).markAsDone();
-        String statusIcon = "    [" + tasks.get(Integer.parseInt(split[1]) - 1).getStatusIcon() + "] ";
-        String taskDescription = tasks.get(Integer.parseInt(split[1]) - 1).description;
+        String[] words = scannedInput.split(" ");
+        tasks.get(Integer.parseInt(words[1]) - 1).markAsDone();
+        String statusIcon = "    [" + tasks.get(Integer.parseInt(words[1]) - 1).getStatusIcon() + "] ";
+        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1).description;
         return CONGRATS + statusIcon + taskDescription + "\n";
     }
 }
