@@ -1,10 +1,16 @@
 import java.util.ArrayList;
+import java.util.EnumMap;
 
 public class Task {
     protected String description;
     protected String taskType;
     protected boolean isDone;
-    public static final String CONGRATS = "    Congrats on completing this task! U damn ups :D\n";
+    private static int numberOfTasks = 0;
+    private static int completedTasks = 0;
+    private static int remainingTasks;
+    protected static final String ADDED = "    Ok I add this task to ur list liao:" + Print.LS;
+    private static final String CONGRATS = "    Congrats on completing this task! U damn ups :D" + Print.LS;
+
 
     /**
      * Sets the task description and default it's completion to false.
@@ -14,6 +20,8 @@ public class Task {
     public Task(String description) {
         this.description = description;
         this.isDone = false;
+        numberOfTasks++;
+        remainingTasks = numberOfTasks - completedTasks;
     }
 
     /**
@@ -31,6 +39,7 @@ public class Task {
      */
     public void markAsDone() {
         isDone = true;
+        completedTasks++;
     }
 
     /**
@@ -40,6 +49,33 @@ public class Task {
      */
     public String getTaskType() {
         return "[" + this.taskType + "]";
+    }
+
+    /**
+     * Returns the number of tasks in the list
+     *
+     * @return number of tasks in the list
+     */
+    public static int getNumberOfTasks() {
+        return numberOfTasks;
+    }
+
+    /**
+     * Returns the number of completed tasks in the list
+     *
+     * @return number of completed tasks in the list
+     */
+    public static int getCompletedTasks() {
+        return completedTasks;
+    }
+
+    /**
+     * Returns the remaining tasks in the list
+     *
+     * @return remaining tasks in the list
+     */
+    public static int getRemainingTasks() {
+        return remainingTasks;
     }
 
     /**
@@ -54,6 +90,6 @@ public class Task {
         tasks.get(Integer.parseInt(words[1]) - 1).markAsDone();
         String statusIcon = "    [" + tasks.get(Integer.parseInt(words[1]) - 1).getStatusIcon() + "] ";
         String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1).description;
-        return CONGRATS + statusIcon + taskDescription + "\n";
+        return CONGRATS + statusIcon + taskDescription + Print.LS;
     }
 }

@@ -2,13 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Commands {
-    public static ArrayList<Task> tasks = new ArrayList<>();
-    public static int numberOfTasks = 0;
-    public static int completedTasks = 0;
-    public static int remainingTasks;
-    public static final Scanner SCAN = new Scanner(System.in);
-    public static final String INVALID_INPUT = "    Invalid input. Please enter again\n";
-    public static final String BYE = "    Thank you for using me! See u again soon ya :)\n";
+    private static final ArrayList<Task> tasks = new ArrayList<>();
+    private static final Scanner SCAN = new Scanner(System.in);
+    private static final String BYE = "    Thank you for using me! See u again soon ya :)" + Print.LS;
+    private static final String INVALID_INPUT = "    Invalid input. Please enter again" + Print.LS;
 
     /**
      * Prints the respective lines or statements based on the commands input by the user.
@@ -21,26 +18,19 @@ public class Commands {
         String[] commandInput = userInput.split(" ");
         switch (commandInput[0]) {
         case "list":
-            Print.printLine(Print.printListDescription(numberOfTasks, completedTasks)
-                    + Print.printListItems(tasks, numberOfTasks));
+            Print.printLine(Print.printListDescription(Task.getNumberOfTasks(), Task.getCompletedTasks())
+                    + Print.printListItems(tasks, Task.getNumberOfTasks()));
             break;
         case "todo":
-            numberOfTasks++;
-            remainingTasks = numberOfTasks - completedTasks;
-            Print.printLine(Todo.printTodo(tasks, userInput, numberOfTasks, remainingTasks));
+            Print.printLine(Todo.printTodo(tasks, userInput));
             break;
         case "deadline":
-            numberOfTasks++;
-            remainingTasks = numberOfTasks - completedTasks;
-            Print.printLine(Deadline.printDeadline(tasks, userInput, numberOfTasks, remainingTasks));
+            Print.printLine(Deadline.printDeadline(tasks, userInput));
             break;
         case "event":
-            numberOfTasks++;
-            remainingTasks = numberOfTasks - completedTasks;
-            Print.printLine(Event.printEvent(tasks, userInput, numberOfTasks, remainingTasks));
+            Print.printLine(Event.printEvent(tasks, userInput));
             break;
         case "done":
-            completedTasks++;
             Print.printLine(Task.completeTask(tasks, userInput));
             break;
         case "bye":

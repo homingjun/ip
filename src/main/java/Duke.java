@@ -1,8 +1,8 @@
 public class Duke {
     public static void main(String[] args) {
         //Print greetings
-        Print.printLine(Greetings.printGreetings());
+        Print.printLine(Print.printGreetings());
         //Execute a command after receiving user input
-        while (Commands.getCommandInput());
+        while (Commands.getCommandInput()) ;
     }
 }

@@ -1,11 +1,24 @@
 import java.util.ArrayList;
 
 public class Print {
-    public static final String EMPTY_LIST = "    Your list still empty eh please add sth leh\n";
-    public static final String ALL_TASKS_COMPLETED = "    Wah u finished all ur tasks! Nice la!\n";
-    public static final String NO_TASKS_COMPLETED = "    U haven't done any tasks yet... U shud start soon!\n";
-    public static final String SOME_TASKS_COMPLETED = "    U still got some tasks left to do. Jia you!\n";
-    public static final String line = "    ―――――――――――――――――――――――――――――――――――――――――――――\n";
+    protected static final String LS = System.lineSeparator();
+    private static final String EMPTY_LIST = "    Your list still empty eh please add sth leh" + LS;
+    private static final String ALL_TASKS_COMPLETED = "    Wah u finished all ur tasks! Nice la!" + LS;
+    private static final String NO_TASKS_COMPLETED = "    U haven't done any tasks yet... U shud start soon!" + LS;
+    private static final String SOME_TASKS_COMPLETED = "    U still got some tasks left to do. Jia you!" + LS;
+    private static final String GREETINGS = "          Yahallo! I'm Singlish bot! I'm here to make ur day nicer :)"
+            + LS +"                          What u wan me help u do?" + LS;
+    private static final String LINE = "    ―――――――――――――――――――――――――――――――――――――――――――"
+            + LS;
+
+    /**
+     * Returns greetings from the bot.
+     *
+     * @return greetings
+     */
+    public static String printGreetings() {
+        return GREETINGS;
+    }
 
     /**
      * Prints a line wrap around the text.
@@ -13,7 +26,7 @@ public class Print {
      * @param text content getting printed
      */
     public static void printLine(String text) {
-        System.out.print(line + text + line);
+        System.out.print(LINE + text + LINE);
     }
 
     /**
@@ -46,7 +59,7 @@ public class Print {
         String listItems = "";
         for (int i = 0; i < numberOfTasks; i++) {
             listItems += "    " + (i + 1) + "." + tasks.get(i).getTaskType() + "["
-                    + tasks.get(i).getStatusIcon() + "]" + tasks.get(i).description + "\n";
+                    + tasks.get(i).getStatusIcon() + "]" + tasks.get(i).description + LS;
         }
         return listItems;
     }
