@@ -18,7 +18,14 @@ public class Event extends Task {
      * @param userInput user input
      * @return newly added task in the list and the number of remaining tasks to complete
      */
-    public static String printEvent(ArrayList<Task> tasks, String userInput) {
+    public static String printEvent(ArrayList<Task> tasks, String userInput) throws DukeException {
+        int atIndex = userInput.indexOf("/at");
+        if (userInput.substring(5).isBlank()) {
+            throw new DukeException("no event");
+        } else if (!userInput.contains("/at") || userInput.substring(5, atIndex).isBlank()
+                || userInput.substring(atIndex + 3).isBlank()) {
+            throw new DukeException("invalid event");
+        }
         String event = userInput.substring(5).replace("/at","(at:");
         tasks.add(new Event(event));
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();

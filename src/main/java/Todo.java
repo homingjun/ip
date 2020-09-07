@@ -18,7 +18,10 @@ public class Todo extends Task {
      * @param userInput user input
      * @return newly added task in the list and the number of remaining tasks to complete
      */
-    public static String printTodo(ArrayList<Task> tasks, String userInput) {
+    public static String printTodo(ArrayList<Task> tasks, String userInput) throws DukeException {
+        if (userInput.substring(4).isBlank()) {
+            throw new DukeException("no todo");
+        }
         String todo = userInput.substring(4);
         tasks.add(new Todo(todo));
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
