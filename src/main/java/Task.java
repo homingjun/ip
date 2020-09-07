@@ -82,11 +82,19 @@ public class Task {
      * Returns the confirmation of completing a task.
      *
      * @param tasks a list used to store the tasks
-     * @param scannedInput user input
+     * @param userInput user input
      * @return completion of task
      */
-    public static String completeTask(ArrayList<Task> tasks, String scannedInput) {
-        String[] words = scannedInput.split(" ");
+    public static String completeTask(ArrayList<Task> tasks, String userInput)
+            throws IndexOutOfBoundsException, DukeException {
+        String[] words = userInput.split(" ");
+        if (tasks.size() == 0) {
+            throw new DukeException("no tasks in list");
+        } else if (userInput.substring(4).isBlank()) {
+            throw new NumberFormatException();
+        } else if (Integer.parseInt(userInput.substring(5)) > tasks.size()) {
+            throw new IndexOutOfBoundsException();
+        }
         tasks.get(Integer.parseInt(words[1]) - 1).markAsDone();
         String statusIcon = "    [" + tasks.get(Integer.parseInt(words[1]) - 1).getStatusIcon() + "] ";
         String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1).description;
