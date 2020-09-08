@@ -11,10 +11,10 @@ public class DukeException extends Exception {
      * Constructs a {@code DukeException} with the specified detail
      * message.
      *
-     * @param userInput the detail message
+     * @param errorMessage the detail message
      */
-    public DukeException (String userInput) {
-        switch (userInput) {
+    public DukeException (String errorMessage) {
+        switch (errorMessage) {
         case "no todo":
             Print.printLine(EMPTY_TODO);
             break;
