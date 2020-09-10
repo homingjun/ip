@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import duke.Duke;
 import duke.exception.DukeException;
 
-public class Task {
+public abstract class Task {
     private final String description;
     protected String taskType;
     private boolean isDone;
