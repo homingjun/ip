@@ -1,10 +1,15 @@
+package duke.task;
+
 import java.util.ArrayList;
+
+import duke.Duke;
+import duke.exception.DukeException;
 
 public class Event extends Task {
     /**
-     * Sets the task description and it's task type to Events.
+     * Sets the duke.task description and it's duke.task type to Events.
      *
-     * @param description description of the task
+     * @param description description of the duke.task
      */
     public Event(String description) {
         super(description + ")");
@@ -12,11 +17,11 @@ public class Event extends Task {
     }
 
     /**
-     * Returns the newly added task in the list and the number of remaining tasks to complete.
+     * Returns the newly added duke.task in the list and the number of remaining tasks to complete.
      *
      * @param tasks a list used to store the tasks
      * @param userInput user input
-     * @return newly added task in the list and the number of remaining tasks to complete
+     * @return newly added duke.task in the list and the number of remaining tasks to complete
      */
     public static String printEvent(ArrayList<Task> tasks, String userInput) throws DukeException {
         int atIndex = userInput.indexOf("/at");
@@ -29,9 +34,10 @@ public class Event extends Task {
         String event = userInput.substring(5).replace("/at","(at:");
         tasks.add(new Event(event));
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
-        String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "]" + event + ")" + Print.LS;
+        String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "]"
+                + event + ")" + Duke.LS;
         String tasksLeft = "    Now you have " + (getRemainingTasks())
-                + " more tasks to complete. Good luck!"+ Print.LS;
+                + " more tasks to complete. Good luck!"+ Duke.LS;
         return ADDED + taskType + statusIcon + tasksLeft;
     }
 }
