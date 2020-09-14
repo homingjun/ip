@@ -11,7 +11,6 @@ public abstract class Task {
     private boolean isDone;
     private static int numberOfTasks = 0;
     private static int completedTasks = 0;
-    private static int remainingTasks;
     private static final String CONGRATS = "    Congrats on completing this task! U damn ups :D" + Duke.LS;
     private static final String EMPTY_LIST = "    Your list still empty eh please add sth leh" + Duke.LS;
     private static final String ALL_TASKS_COMPLETED = "    Wah u finished all ur tasks! Nice la!" + Duke.LS;
@@ -20,24 +19,23 @@ public abstract class Task {
     private static final String SOME_TASKS_COMPLETED = "    U still got some tasks left to do. Jia you!"
             + Duke.LS;
     protected static final String ADDED = "    Ok I add this task to ur list liao:" + Duke.LS;
-
+    private static final String TASK_DELETED = "    Ok I deleted it liao" + Duke.LS;
 
     /**
-     * Sets the duke.task description and default it's completion to false.
+     * Sets the task description and default it's completion to false.
      *
-     * @param description description of the duke.task
+     * @param description Description of the task.
      */
     public Task(String description) {
         this.description = description;
         this.isDone = false;
         numberOfTasks++;
-        remainingTasks = numberOfTasks - completedTasks;
     }
 
     /**
-     * Returns the completion status of the duke.task
+     * Returns the completion status of the task.
      *
-     * @return completion status of the duke.task
+     * @return Completion status of the task.
      */
     public String getStatusIcon() {
         //return ✓ or ✘ symbols
@@ -45,75 +43,69 @@ public abstract class Task {
     }
 
     /**
-     * Sets the completion status of the duke.task as completed.
+     * Sets the completion status of the task as completed.
      */
     public void markAsDone() {
         isDone = true;
         completedTasks++;
     }
 
+    public void setTaskDeleted() {
+        if (isDone) {
+            completedTasks--;
+        }
+        numberOfTasks--;
+    }
+
     /**
-     * Returns the description of the duke.task.
+     * Returns the description of the task.
      *
-     * @return description of duke.task
+     * @return Description of task.
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * Returns the type of duke.task.
+     * Returns the type of task.
      *
-     * @return type of duke.task
+     * @return Type of task.
      */
     public String getTaskType() {
         return "[" + this.taskType + "]";
     }
 
     /**
-     * Returns the number of tasks in the list
+     * Returns the number of tasks in the list.
      *
-     * @return number of tasks in the list
+     * @return Number of tasks in the list.
      */
     public static int getNumberOfTasks() {
         return numberOfTasks;
     }
 
     /**
-     * Returns the number of completed tasks in the list
+     * Returns the number of completed tasks in the list.
      *
-     * @return number of completed tasks in the list
+     * @return Number of completed tasks in the list.
      */
     public static int getCompletedTasks() {
         return completedTasks;
     }
 
     /**
-     * Returns the remaining tasks in the list
+     * Returns the confirmation of completing a task.
      *
-     * @return remaining tasks in the list
+     * @param tasks A list used to store the tasks.
+     * @param userInput User input.
+     * @return Completion of task.
+     * @throws DukeException If the list is empty.
      */
-    public static int getRemainingTasks() {
-        return remainingTasks;
-    }
-
-    /**
-     * Returns the confirmation of completing a duke.task.
-     *
-     * @param tasks a list used to store the tasks
-     * @param userInput user input
-     * @return completion of duke.task
-     */
-    public static String completeTask(ArrayList<Task> tasks, String userInput)
-            throws IndexOutOfBoundsException, DukeException {
-        String[] words = userInput.split(" ");
+    public static String completeTask(ArrayList<Task> tasks, String userInput) throws DukeException {
         if (tasks.size() == 0) {
             throw new DukeException("no tasks in list");
-        } else if (userInput.substring(4).isBlank()) {
-            throw new NumberFormatException();
-        } else if (Integer.parseInt(userInput.substring(5)) > tasks.size()) {
-            throw new IndexOutOfBoundsException();
         }
+        String[] words = userInput.split(" ");
         tasks.get(Integer.parseInt(words[1]) - 1).markAsDone();
         String statusIcon = "    [" + tasks.get(Integer.parseInt(words[1]) - 1).getStatusIcon() + "] ";
         String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1).getDescription();
@@ -121,11 +113,38 @@ public abstract class Task {
     }
 
     /**
-     * Returns the respective list description based on the number of tasks and completed tasks
+     * Returns the confirmation of task deletion from the list.
      *
-     * @param numberOfTasks number of tasks in the list
-     * @param completedTasks number of completed tasks in the list
-     * @return list description
+     * @param tasks A list used to store the tasks.
+     * @param userInput User input.
+     * @return Deletion of task.
+     * @throws DukeException If the list is empty.
+     * @throws NumberFormatException If no number is given.
+     */
+    public static String deleteTask(ArrayList<Task> tasks, String userInput)
+            throws DukeException, NumberFormatException {
+        if (tasks.size() == 0) {
+            throw new DukeException("    Ps u need to add tasks first before u can set them as complete leh" + Duke.LS);
+        } else if (userInput.substring(6).isBlank()) {
+            throw new NumberFormatException();
+        }
+        String[] words = userInput.split(" ");
+        tasks.get(Integer.parseInt(words[1]) - 1).setTaskDeleted();
+        String taskType = "    " + tasks.get(Integer.parseInt(words[1]) - 1).getTaskType();
+        String statusIcon = "[" + tasks.get(Integer.parseInt(words[1]) - 1).getStatusIcon() + "] ";
+        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1).getDescription() + Duke.LS;
+        tasks.remove(Integer.parseInt(words[1]) - 1);
+        String tasksLeft = "    Now you have " + getNumberOfTasks()
+                + " tasks in the list." + Duke.LS;
+        return TASK_DELETED + taskType + statusIcon + taskDescription + tasksLeft;
+    }
+
+    /**
+     * Returns the respective list description based on the number of tasks and completed tasks.
+     *
+     * @param numberOfTasks Number of tasks in the list.
+     * @param completedTasks Number of completed tasks in the list.
+     * @return List description.
      */
     public static String printListDescription(int numberOfTasks, int completedTasks) {
         if (numberOfTasks == 0) {
@@ -140,11 +159,11 @@ public abstract class Task {
     }
 
     /**
-     * Returns the tasks in the list along with the status of the .
+     * Returns the tasks in the list along with the status of the task.
      *
-     * @param tasks a list used to store the tasks
-     * @param numberOfTasks number of tasks in the list
-     * @return list of tasks
+     * @param tasks A list used to store the tasks.
+     * @param numberOfTasks Number of tasks in the list.
+     * @return List of tasks.
      */
     public static String printListItems(ArrayList<Task> tasks, int numberOfTasks) {
         String listItems = "";

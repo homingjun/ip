@@ -12,7 +12,7 @@ public class Duke {
     /**
      * Returns greetings from the bot.
      *
-     * @return greetings
+     * @return Greetings.
      */
     public static String printGreetings() {
         return GREETINGS;
@@ -21,7 +21,7 @@ public class Duke {
     /**
      * Prints a line wrap around the text.
      *
-     * @param text content getting printed
+     * @param text Content getting printed.
      */
     public static void printLine(String text) {
         System.out.print(LINE + text + LINE);

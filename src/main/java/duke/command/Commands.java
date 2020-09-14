@@ -16,15 +16,15 @@ public class Commands {
     private static final String BYE = "    Thank you for using me! See u again soon ya :)" + Duke.LS;
     private static final String INVALID_INPUT = "    I can't understand what u saying eh, can say properly?"
             + Duke.LS;
-    private static final String INVALID_NUMBER = "    Err I think u enter wrong duke.task number sia, it's too big le"
+    private static final String INVALID_NUMBER = "    Err I think u enter wrong task number sia, it's not in the list"
             + Duke.LS;
-    private static final String NO_STRING = "    After ur \"done\" pls use numbers only tolong" + Duke.LS;
+    private static final String NO_STRING = "    After ur \"done\" or \"delete\" pls use numbers only tolong" + Duke.LS;
 
     /**
      * Prints the respective lines or statements based on the commands input by the user.
-     * Returns the boolean value of the duke.command.
+     * Returns the boolean value of the command.
      *
-     * @return boolean value
+     * @return Boolean value
      */
     public static boolean getCommandInput() {
         String userInput = SCAN.nextLine();
@@ -51,6 +51,9 @@ public class Commands {
             case "done":
                 Duke.printLine(Task.completeTask(tasks, userInput));
                 break;
+            case "delete":
+                Duke.printLine(Task.deleteTask(tasks, userInput));
+                break;
             case "bye":
                 Duke.printLine(sayGoodbye());
                 return false;
@@ -58,6 +61,7 @@ public class Commands {
                 Duke.printLine(invalidInput());
             }
         } catch (DukeException e) {
+            e.printExceptionMessage();
         } catch (IndexOutOfBoundsException e) {
             Duke.printLine(INVALID_NUMBER);
         } catch (NumberFormatException e) {
@@ -67,18 +71,18 @@ public class Commands {
     }
 
     /**
-     * returns goodbye greeting from the bot.
+     * Returns goodbye greeting from the bot.
      *
-     * @return goodbye
+     * @return Goodbye.
      */
     public static String sayGoodbye() {
         return BYE;
     }
 
     /**
-     * returns a prompt to re-enter the input when an invalid input is entered.
+     * Returns a prompt to re-enter the input when an invalid input is entered.
      *
-     * @return invalid input warning
+     * @return Invalid input warning.
      */
     public static String invalidInput() {
         return INVALID_INPUT;
