@@ -169,7 +169,7 @@ public abstract class Task {
         String listItems = "";
         for (int i = 0; i < numberOfTasks; i++) {
             listItems += "    " + (i + 1) + "." + tasks.get(i).getTaskType() + "["
-                    + tasks.get(i).getStatusIcon() + "]" + tasks.get(i).getDescription() + Duke.LS;
+                    + tasks.get(i).getStatusIcon() + "] " + tasks.get(i).getDescription().trim() + Duke.LS;
         }
         return listItems;
     }

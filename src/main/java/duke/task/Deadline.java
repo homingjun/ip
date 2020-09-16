@@ -6,14 +6,21 @@ import duke.Duke;
 import duke.exception.DukeException;
 
 public class Deadline extends Task {
+    private String by;
+
     /**
      * Sets the task description and it's task type to Deadlines.
      *
      * @param description Description of the task.
      */
-    public Deadline(String description) {
-        super(" " + description + ")");
+    public Deadline(String description, String by) {
+        super(" " + description + "(by:" + by + ")");
+        this.by = by;
         this.taskType = "D";
+    }
+
+    public String getBy() {
+        return by;
     }
 
     /**
@@ -32,11 +39,11 @@ public class Deadline extends Task {
                 || userInput.substring(byIndex + 3).isBlank()) {
             throw new DukeException("    Ur deadline looks wrong leh pls check it" + Duke.LS);
         }
-        String deadline = userInput.substring(9).replace("/by","(by:");
-        tasks.add(new Deadline(deadline));
+        String[] deadline = userInput.substring(9).split("/by ");
+        tasks.add(new Deadline(deadline[0], deadline[1]));
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
         String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "] "
-                + deadline + ")" + Duke.LS;
+                + deadline[0] + "(by:" + deadline[1] + ")" + Duke.LS;
         String tasksLeft = "    Now you have " + getNumberOfTasks()
                 + " tasks in the list." + Duke.LS;
         return ADDED + taskType + statusIcon + tasksLeft;

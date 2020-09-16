@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import duke.Duke;
+import duke.SaveFile;
 import duke.exception.DukeException;
 import duke.task.Deadline;
 import duke.task.Event;
@@ -11,7 +12,9 @@ import duke.task.Task;
 import duke.task.Todo;
 
 public class Commands {
-    private static final ArrayList<Task> tasks = new ArrayList<>();
+    private static ArrayList<Task> tasks;
+    private final SaveFile save;
+
     private static final Scanner SCAN = new Scanner(System.in);
     private static final String BYE = "    Thank you for using me! See u again soon ya :)" + Duke.LS;
     private static final String INVALID_INPUT = "    I can't understand what u saying eh, can say properly?"
@@ -19,6 +22,17 @@ public class Commands {
     private static final String INVALID_NUMBER = "    Err I think u enter wrong task number sia, it's not in the list"
             + Duke.LS;
     private static final String NO_STRING = "    After ur \"done\" or \"delete\" pls use numbers only tolong" + Duke.LS;
+
+    /**
+     * Sets the task array and the save file to the current one.
+     *
+     * @param tasks an array list of tasks
+     * @param save a save file used to store the list
+     */
+    public Commands(ArrayList<Task> tasks, SaveFile save) {
+        this.tasks = tasks;
+        this.save = save;
+    }
 
     /**
      * Prints the respective lines or statements based on the commands input by the user.
@@ -41,18 +55,23 @@ public class Commands {
                 break;
             case "todo":
                 Duke.printLine(Todo.printTodo(tasks, userInput));
+                SaveFile.writeSaveFile(tasks);
                 break;
             case "deadline":
                 Duke.printLine(Deadline.printDeadline(tasks, userInput));
+                SaveFile.writeSaveFile(tasks);
                 break;
             case "event":
                 Duke.printLine(Event.printEvent(tasks, userInput));
+                SaveFile.writeSaveFile(tasks);
                 break;
             case "done":
                 Duke.printLine(Task.completeTask(tasks, userInput));
+                SaveFile.writeSaveFile(tasks);
                 break;
             case "delete":
                 Duke.printLine(Task.deleteTask(tasks, userInput));
+                SaveFile.writeSaveFile(tasks);
                 break;
             case "bye":
                 Duke.printLine(sayGoodbye());
