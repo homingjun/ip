@@ -7,7 +7,7 @@ import duke.exception.DukeException;
 
 public class Todo extends Task {
     /**
-     * Sets the duke.task description and it's duke.task type to duke.task.Todo.
+     * Sets the task description and it's task type to Todo.
      *
      * @param description description of the duke.task
      */
@@ -17,7 +17,7 @@ public class Todo extends Task {
     }
 
     /**
-     * Returns the newly added duke.task in the list and the number of remaining tasks to complete.
+     * Returns the newly added task in the list and the number of remaining tasks to complete.
      *
      * @param tasks a list used to store the tasks
      * @param userInput user input

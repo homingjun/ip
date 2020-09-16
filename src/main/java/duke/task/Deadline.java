@@ -6,22 +6,29 @@ import duke.Duke;
 import duke.exception.DukeException;
 
 public class Deadline extends Task {
+    private String by;
+
     /**
-     * Sets the duke.task description and it's duke.task type to Deadlines.
+     * Sets the task description and it's task type to Deadlines.
      *
-     * @param description description of the duke.task
+     * @param description description of the task
      */
-    public Deadline(String description) {
-        super(" " + description + ")");
+    public Deadline(String description, String by) {
+        super(" " + description + "(by:" + by + ")");
+        this.by = by;
         this.taskType = "D";
     }
 
+    public String getBy() {
+        return by;
+    }
+
     /**
-     * Returns the newly added duke.task in the list and the number of remaining tasks to complete.
+     * Returns the newly added task in the list and the number of remaining tasks to complete.
      *
      * @param tasks a list used to store the tasks
      * @param userInput user input
-     * @return newly added duke.task in the list and the number of remaining tasks to complete
+     * @return newly added task in the list and the number of remaining tasks to complete
      */
     public static String printDeadline(ArrayList<Task> tasks, String userInput) throws DukeException {
         int byIndex = userInput.indexOf("/by");
@@ -31,11 +38,11 @@ public class Deadline extends Task {
                 || userInput.substring(byIndex + 3).isBlank()) {
             throw new DukeException("invalid deadline");
         }
-        String deadline = userInput.substring(9).replace("/by","(by:");
-        tasks.add(new Deadline(deadline));
+        String[] deadline = userInput.substring(9).split("/by ");
+        tasks.add(new Deadline(deadline[0], deadline[1]));
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
         String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "] "
-                + deadline + ")" + Duke.LS;
+                + deadline[0] + "(by:" + deadline[1] + ")" + Duke.LS;
         String tasksLeft = "    Now you have " + (getRemainingTasks())
                 + " more tasks to complete. Good luck!" + Duke.LS;
         return ADDED + taskType + statusIcon + tasksLeft;

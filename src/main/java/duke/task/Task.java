@@ -23,9 +23,9 @@ public abstract class Task {
 
 
     /**
-     * Sets the duke.task description and default it's completion to false.
+     * Sets the task description and default it's completion to false.
      *
-     * @param description description of the duke.task
+     * @param description description of the task
      */
     public Task(String description) {
         this.description = description;
@@ -35,9 +35,9 @@ public abstract class Task {
     }
 
     /**
-     * Returns the completion status of the duke.task
+     * Returns the completion status of the task
      *
-     * @return completion status of the duke.task
+     * @return completion status of the task
      */
     public String getStatusIcon() {
         //return ✓ or ✘ symbols
@@ -45,7 +45,7 @@ public abstract class Task {
     }
 
     /**
-     * Sets the completion status of the duke.task as completed.
+     * Sets the completion status of the task as completed.
      */
     public void markAsDone() {
         isDone = true;
@@ -53,9 +53,9 @@ public abstract class Task {
     }
 
     /**
-     * Returns the description of the duke.task.
+     * Returns the description of the task.
      *
-     * @return description of duke.task
+     * @return description of task
      */
     public String getDescription() {
         return description;
@@ -64,7 +64,7 @@ public abstract class Task {
     /**
      * Returns the type of duke.task.
      *
-     * @return type of duke.task
+     * @return type of task
      */
     public String getTaskType() {
         return "[" + this.taskType + "]";
@@ -98,11 +98,11 @@ public abstract class Task {
     }
 
     /**
-     * Returns the confirmation of completing a duke.task.
+     * Returns the confirmation of completing a task.
      *
      * @param tasks a list used to store the tasks
      * @param userInput user input
-     * @return completion of duke.task
+     * @return completion of task
      */
     public static String completeTask(ArrayList<Task> tasks, String userInput)
             throws IndexOutOfBoundsException, DukeException {
@@ -150,7 +150,7 @@ public abstract class Task {
         String listItems = "";
         for (int i = 0; i < numberOfTasks; i++) {
             listItems += "    " + (i + 1) + "." + tasks.get(i).getTaskType() + "["
-                    + tasks.get(i).getStatusIcon() + "]" + tasks.get(i).getDescription() + Duke.LS;
+                    + tasks.get(i).getStatusIcon() + "] " + tasks.get(i).getDescription().trim() + Duke.LS;
         }
         return listItems;
     }
