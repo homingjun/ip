@@ -10,6 +10,7 @@ list
 done 2
 list
 done 3
+delete 3
 list
 not a valid input
 bye

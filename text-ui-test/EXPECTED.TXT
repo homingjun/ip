@@ -8,7 +8,7 @@
     ―――――――――――――――――――――――――――――――――――――――――――
     Ok I add this task to ur list liao:
     [T][✘] eat breakfast
-    Now you have 1 more tasks to complete. Good luck!
+    Now you have 1 tasks in the list.
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U haven't done any tasks yet... U shud start soon!
@@ -17,7 +17,7 @@
     ―――――――――――――――――――――――――――――――――――――――――――
     Ok I add this task to ur list liao:
     [E][✘] SEP Talk (at: 8pm)
-    Now you have 2 more tasks to complete. Good luck!
+    Now you have 2 tasks in the list.
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U haven't done any tasks yet... U shud start soon!
@@ -36,7 +36,7 @@
     ―――――――――――――――――――――――――――――――――――――――――――
     Ok I add this task to ur list liao:
     [D][✘] Finish Repl assignments (by: Sunday 11pm)
-    Now you have 2 more tasks to complete. Good luck!
+    Now you have 3 tasks in the list.
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U still got some tasks left to do. Jia you!
@@ -59,10 +59,14 @@
     [✓]  Finish Repl assignments (by: Sunday 11pm)
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
+    Ok I deleted it liao
+    [D][✓]  Finish Repl assignments (by: Sunday 11pm)
+    Now you have 2 tasks in the list.
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
     Wah u finished all ur tasks! Nice la!
     1.[T][✓] eat breakfast
     2.[E][✓] SEP Talk (at: 8pm)
-    3.[D][✓] Finish Repl assignments (by: Sunday 11pm)
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     I can't understand what u saying eh, can say properly?
