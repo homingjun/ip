@@ -22,6 +22,12 @@ public class Commands {
     private static final String INVALID_NUMBER = "    Err I think u enter wrong task number sia, it's not in the list"
             + Duke.LS;
     private static final String NO_STRING = "    After ur \"done\" or \"delete\" pls use numbers only tolong" + Duke.LS;
+    private static final String EMPTY_LIST = "    Your list still empty eh please add sth leh" + Duke.LS;
+    private static final String ALL_TASKS_COMPLETED = "    Wah u finished all ur tasks! Nice la!" + Duke.LS;
+    private static final String NO_TASKS_COMPLETED = "    U haven't done any tasks yet... U shud start soon!"
+            + Duke.LS;
+    private static final String SOME_TASKS_COMPLETED = "    U still got some tasks left to do. Jia you!"
+            + Duke.LS;
 
     /**
      * Sets the task array and the save file to the current one.
@@ -50,8 +56,8 @@ public class Commands {
                     Duke.printLine(invalidInput());
                     break;
                 }
-                Duke.printLine(Task.printListDescription(Task.getNumberOfTasks(), Task.getCompletedTasks())
-                        + Task.printListItems(tasks, Task.getNumberOfTasks()));
+                Duke.printLine(printListDescription(Task.getNumberOfTasks(), Task.getCompletedTasks())
+                        + printListItems(tasks));
                 break;
             case "todo":
                 Duke.printLine(Todo.printTodo(tasks, userInput));
@@ -87,6 +93,41 @@ public class Commands {
             Duke.printLine(NO_STRING);
         }
         return true;
+    }
+
+    /**
+     * Returns the respective list description based on the number of tasks and completed tasks.
+     *
+     * @param numberOfTasks Number of tasks in the list.
+     * @param completedTasks Number of completed tasks in the list.
+     * @return List description.
+     */
+    public static String printListDescription(int numberOfTasks, int completedTasks) {
+        if (numberOfTasks == 0) {
+            return EMPTY_LIST;
+        } else if (completedTasks == numberOfTasks) {
+            return ALL_TASKS_COMPLETED;
+        } else if (completedTasks == 0) {
+            return NO_TASKS_COMPLETED;
+        } else {
+            return SOME_TASKS_COMPLETED;
+        }
+    }
+
+    /**
+     * Returns the tasks in the list along with the status of the task.
+     *
+     * @param tasks A list used to store the tasks.
+     * @return List of tasks.
+     */
+    public static String printListItems(ArrayList<Task> tasks) {
+        String listItems = "";
+        int taskNumber = 1;
+        for (Task t : tasks) {
+            listItems += "    " + taskNumber + ". " + t + Duke.LS;
+            taskNumber++;
+        }
+        return listItems;
     }
 
     /**

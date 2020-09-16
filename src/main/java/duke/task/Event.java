@@ -14,7 +14,7 @@ public class Event extends Task {
      * @param description Description of the task.
      */
     public Event(String description, String at) {
-        super(description + "(at:" + at + ")");
+        super(description);
         this.at = at;
         this.taskType = "E";
     }
@@ -43,9 +43,14 @@ public class Event extends Task {
         tasks.add(new Event(event[0], event[1]));
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
         String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "]"
-                + event[0] + "(at:" + event[1] + ")" + Duke.LS;
+                + event[0] + "(at: " + event[1] + ")" + Duke.LS;
         String tasksLeft = "    Now you have " + getNumberOfTasks()
                 + " tasks in the list."+ Duke.LS;
         return ADDED + taskType + statusIcon + tasksLeft;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString().trim() + " (at: " + this.getAt() + ")";
     }
 }

@@ -14,7 +14,7 @@ public class Deadline extends Task {
      * @param description Description of the task.
      */
     public Deadline(String description, String by) {
-        super(" " + description + "(by:" + by + ")");
+        super(description);
         this.by = by;
         this.taskType = "D";
     }
@@ -43,9 +43,13 @@ public class Deadline extends Task {
         tasks.add(new Deadline(deadline[0], deadline[1]));
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
         String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "] "
-                + deadline[0] + "(by:" + deadline[1] + ")" + Duke.LS;
+                + deadline[0] + "(by: " + deadline[1] + ")" + Duke.LS;
         String tasksLeft = "    Now you have " + getNumberOfTasks()
                 + " tasks in the list." + Duke.LS;
         return ADDED + taskType + statusIcon + tasksLeft;
+    }
+    @Override
+    public String toString() {
+        return super.toString().trim() + " (by: " + this.getBy() + ")";
     }
 }

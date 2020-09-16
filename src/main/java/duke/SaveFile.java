@@ -34,20 +34,20 @@ public class SaveFile {
     public void createSaveFile() {
         File saveFolder = new File(FOLDER_PATH);
         if (!saveFolder.exists() && !saveFolder.isDirectory()) {
-            System.out.println("It looks like u dun have a save folder yet, lemme make one now");
+            Duke.printLine("    It looks like u dun have a save folder yet, lemme make one now" + Duke.LS);
             saveFolder.mkdir();
-            System.out.println(saveFolder.getAbsolutePath());
+            Duke.printLine("    I made a folder for u here: " + saveFolder.getAbsolutePath() + Duke.LS);
         }
         dukeSaveFile = new File(FILE_PATH);
         try {
             if (!dukeSaveFile.exists()) {
-                System.out.println("I can't find any save file here, lemme make one now");
+                Duke.printLine("    I can't find any save file here, lemme make one now" + Duke.LS);
                 dukeSaveFile.createNewFile();
             } else {
-                System.out.println("I found ur file le! :D");
+                Duke.printLine("    I found ur file le! :D" + Duke.LS);
             }
         } catch (IOException e) {
-            System.out.println("I think got problem sia I can't save ur file");
+            Duke.printLine("    I think got problem sia I can't save ur file" + Duke.LS);
         }
     }
 
@@ -82,7 +82,7 @@ public class SaveFile {
             }
             return tasks;
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            Duke.printLine("    I can't find ur file sia" + Duke.LS);
             return null;
         }
     }
@@ -109,7 +109,7 @@ public class SaveFile {
             }
             saveWriter.close();
         } catch (IOException e) {
-            System.out.println("I cant write to ur save file :/");
+            Duke.printLine("    I cant write to ur save file :/" + Duke.LS);
         }
     }
 }

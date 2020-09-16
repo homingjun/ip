@@ -12,12 +12,6 @@ public abstract class Task {
     private static int numberOfTasks = 0;
     private static int completedTasks = 0;
     private static final String CONGRATS = "    Congrats on completing this task! U damn ups :D" + Duke.LS;
-    private static final String EMPTY_LIST = "    Your list still empty eh please add sth leh" + Duke.LS;
-    private static final String ALL_TASKS_COMPLETED = "    Wah u finished all ur tasks! Nice la!" + Duke.LS;
-    private static final String NO_TASKS_COMPLETED = "    U haven't done any tasks yet... U shud start soon!"
-            + Duke.LS;
-    private static final String SOME_TASKS_COMPLETED = "    U still got some tasks left to do. Jia you!"
-            + Duke.LS;
     protected static final String ADDED = "    Ok I add this task to ur list liao:" + Duke.LS;
     private static final String TASK_DELETED = "    Ok I deleted it liao" + Duke.LS;
 
@@ -139,38 +133,10 @@ public abstract class Task {
         return TASK_DELETED + taskType + statusIcon + taskDescription + tasksLeft;
     }
 
-    /**
-     * Returns the respective list description based on the number of tasks and completed tasks.
-     *
-     * @param numberOfTasks Number of tasks in the list.
-     * @param completedTasks Number of completed tasks in the list.
-     * @return List description.
-     */
-    public static String printListDescription(int numberOfTasks, int completedTasks) {
-        if (numberOfTasks == 0) {
-            return EMPTY_LIST;
-        } else if (completedTasks == numberOfTasks) {
-            return ALL_TASKS_COMPLETED;
-        } else if (completedTasks == 0) {
-            return NO_TASKS_COMPLETED;
-        } else {
-            return SOME_TASKS_COMPLETED;
-        }
-    }
 
-    /**
-     * Returns the tasks in the list along with the status of the task.
-     *
-     * @param tasks A list used to store the tasks.
-     * @param numberOfTasks Number of tasks in the list.
-     * @return List of tasks.
-     */
-    public static String printListItems(ArrayList<Task> tasks, int numberOfTasks) {
-        String listItems = "";
-        for (int i = 0; i < numberOfTasks; i++) {
-            listItems += "    " + (i + 1) + "." + tasks.get(i).getTaskType() + "["
-                    + tasks.get(i).getStatusIcon() + "] " + tasks.get(i).getDescription().trim() + Duke.LS;
-        }
-        return listItems;
+
+    @Override
+    public String toString() {
+        return "[" + this.taskType + "]" + "[" + getStatusIcon() + "] " + this.description.trim();
     }
 }
