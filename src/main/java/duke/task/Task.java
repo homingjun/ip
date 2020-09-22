@@ -101,9 +101,8 @@ public abstract class Task {
         }
         String[] words = userInput.split(" ");
         tasks.get(Integer.parseInt(words[1]) - 1).markAsDone();
-        String statusIcon = "    [" + tasks.get(Integer.parseInt(words[1]) - 1).getStatusIcon() + "] ";
-        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1).getDescription();
-        return CONGRATS + statusIcon + taskDescription + Duke.LS;
+        Task taskDescription = tasks.get(Integer.parseInt(words[1]) - 1);
+        return CONGRATS + "    " + taskDescription + Duke.LS;
     }
 
     /**
@@ -124,13 +123,11 @@ public abstract class Task {
         }
         String[] words = userInput.split(" ");
         tasks.get(Integer.parseInt(words[1]) - 1).setTaskDeleted();
-        String taskType = "    " + tasks.get(Integer.parseInt(words[1]) - 1).getTaskType();
-        String statusIcon = "[" + tasks.get(Integer.parseInt(words[1]) - 1).getStatusIcon() + "] ";
-        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1).getDescription() + Duke.LS;
+        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1) + Duke.LS;
         tasks.remove(Integer.parseInt(words[1]) - 1);
         String tasksLeft = "    Now you have " + getNumberOfTasks()
                 + " tasks in the list." + Duke.LS;
-        return TASK_DELETED + taskType + statusIcon + taskDescription + tasksLeft;
+        return TASK_DELETED + "    " + taskDescription + tasksLeft;
     }
 
 

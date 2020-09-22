@@ -44,8 +44,7 @@ public class Deadline extends Task {
         String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
         String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "] "
                 + deadline[0] + "(by: " + deadline[1] + ")" + Duke.LS;
-        String tasksLeft = "    Now you have " + getNumberOfTasks()
-                + " tasks in the list." + Duke.LS;
+        String tasksLeft = "    Now you have " + getNumberOfTasks() + " tasks in the list." + Duke.LS;
         return ADDED + taskType + statusIcon + tasksLeft;
     }
     @Override
