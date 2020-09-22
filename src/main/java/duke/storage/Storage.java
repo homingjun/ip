@@ -1,9 +1,11 @@
-package duke;
+package duke.storage;
 
+import duke.messages.Messages;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.Todo;
+import duke.ui.Ui;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SaveFile {
+public class Storage {
     private final String FOLDER_PATH;
     private final String FILE_PATH;
     private static File dukeSaveFile;
@@ -23,7 +25,7 @@ public class SaveFile {
      * @param folderpath save folder path
      * @param filepath save file path
      */
-    public SaveFile(String folderpath, String filepath) {
+    public Storage(String folderpath, String filepath) {
         this.FOLDER_PATH = folderpath;
         this.FILE_PATH = filepath;
     }
@@ -34,20 +36,20 @@ public class SaveFile {
     public void createSaveFile() {
         File saveFolder = new File(FOLDER_PATH);
         if (!saveFolder.exists() && !saveFolder.isDirectory()) {
-            Duke.printLine("    It looks like u dun have a save folder yet, lemme make one now" + Duke.LS);
+            Ui.printLine(Messages.CREATE_SAVE_FOLDER);
             saveFolder.mkdir();
-            Duke.printLine("    I made a folder for u here: " + saveFolder.getAbsolutePath() + Duke.LS);
+            Ui.printLine( Messages.SAVE_FOLDER_LOCATION + saveFolder.getAbsolutePath() + Messages.LS);
         }
         dukeSaveFile = new File(FILE_PATH);
         try {
             if (!dukeSaveFile.exists()) {
-                Duke.printLine("    I can't find any save file here, lemme make one now" + Duke.LS);
+                Ui.printLine(Messages.CREATE_SAVE_FILE);
                 dukeSaveFile.createNewFile();
             } else {
-                Duke.printLine("    I found ur file le! :D" + Duke.LS);
+                Ui.printLine(Messages.SAVE_FILE_FOUND);
             }
         } catch (IOException e) {
-            Duke.printLine("    I think got problem sia I can't save ur file" + Duke.LS);
+            Ui.printLine(Messages.CANNOT_CREATE_SAVE_FILE);
         }
     }
 
@@ -82,7 +84,7 @@ public class SaveFile {
             }
             return tasks;
         } catch (FileNotFoundException e) {
-            Duke.printLine("    I can't find ur file sia" + Duke.LS);
+            Ui.printLine(Messages.CANNOT_FIND_SAVE_FILE);
             return null;
         }
     }
@@ -105,11 +107,11 @@ public class SaveFile {
                     saveWriter.append("|" + ((Event) t).getAt());
                     break;
                 }
-                saveWriter.append(Duke.LS);
+                saveWriter.append(Messages.LS);
             }
             saveWriter.close();
         } catch (IOException e) {
-            Duke.printLine("    I cant write to ur save file :/" + Duke.LS);
+            Ui.printLine(Messages.CANNOT_WRITE_TO_SAVE_FILE);
         }
     }
 }

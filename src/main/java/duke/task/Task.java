@@ -1,9 +1,8 @@
 package duke.task;
 
 import java.util.ArrayList;
-
-import duke.Duke;
 import duke.exception.DukeException;
+import duke.messages.Messages;
 
 public abstract class Task {
     private final String description;
@@ -11,9 +10,6 @@ public abstract class Task {
     private boolean isDone;
     private static int numberOfTasks = 0;
     private static int completedTasks = 0;
-    private static final String CONGRATS = "    Congrats on completing this task! U damn ups :D" + Duke.LS;
-    protected static final String ADDED = "    Ok I add this task to ur list liao:" + Duke.LS;
-    private static final String TASK_DELETED = "    Ok I deleted it liao" + Duke.LS;
 
     /**
      * Sets the task description and default it's completion to false.
@@ -97,12 +93,12 @@ public abstract class Task {
      */
     public static String completeTask(ArrayList<Task> tasks, String userInput) throws DukeException {
         if (tasks.size() == 0) {
-            throw new DukeException("no tasks in list");
+            throw new DukeException(Messages.NOTHING_TO_COMPLETE);
         }
         String[] words = userInput.split(" ");
         tasks.get(Integer.parseInt(words[1]) - 1).markAsDone();
         Task taskDescription = tasks.get(Integer.parseInt(words[1]) - 1);
-        return CONGRATS + "    " + taskDescription + Duke.LS;
+        return Messages.CONGRATS + "    " + taskDescription + Messages.LS;
     }
 
     /**
@@ -117,20 +113,18 @@ public abstract class Task {
     public static String deleteTask(ArrayList<Task> tasks, String userInput)
             throws DukeException, NumberFormatException {
         if (tasks.size() == 0) {
-            throw new DukeException("    Ps u need to add tasks first before u can set them as complete leh" + Duke.LS);
+            throw new DukeException(Messages.NOTHING_TO_DELETE);
         } else if (userInput.substring(6).isBlank()) {
             throw new NumberFormatException();
         }
         String[] words = userInput.split(" ");
         tasks.get(Integer.parseInt(words[1]) - 1).setTaskDeleted();
-        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1) + Duke.LS;
+        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1) + Messages.LS;
         tasks.remove(Integer.parseInt(words[1]) - 1);
         String tasksLeft = "    Now you have " + getNumberOfTasks()
-                + " tasks in the list." + Duke.LS;
-        return TASK_DELETED + "    " + taskDescription + tasksLeft;
+                + " tasks in the list." + Messages.LS;
+        return Messages.TASK_DELETED + "    " + taskDescription + tasksLeft;
     }
-
-
 
     @Override
     public String toString() {

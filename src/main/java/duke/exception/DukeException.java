@@ -1,6 +1,7 @@
 package duke.exception;
 
 import duke.Duke;
+import duke.ui.Ui;
 
 public class DukeException extends Exception {
     /**
@@ -17,6 +18,6 @@ public class DukeException extends Exception {
      * Prints the exception message.
      */
     public void printExceptionMessage() {
-        Duke.printLine(this.getMessage());
+        Ui.printLine(this.getMessage());
     }
 }

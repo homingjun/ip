@@ -1,46 +1,31 @@
 package duke;
 
-import duke.command.Commands;
+import duke.parser.Parser;
+import duke.storage.Storage;
 import duke.task.Task;
+import duke.ui.Ui;
 
 import java.util.ArrayList;
 
 public class Duke {
-    public static final String LS = System.lineSeparator();
-    private static final String GREETINGS = "          Yahallo! I'm Singlish bot! I'm here to make ur day nicer :)"
-            + LS + "                          What u wan me help u do?" + LS;
-    private static final String LINE = "    ―――――――――――――――――――――――――――――――――――――――――――"
-            + LS;
-
     private static final ArrayList<Task> tasks = new ArrayList<>();
-    private static final String FOLDER_PATH = "data";
-    private static final String FILE_PATH = "data/savedtasks.txt";
+    private static Parser parser;
+    private static Storage storage;
+    private final Ui ui;
 
-    private static final SaveFile save = new SaveFile(FOLDER_PATH, FILE_PATH);
-    private static final Commands command = new Commands(tasks, save);
-
-    /**
-     * Returns greetings from the bot.
-     *
-     * @return Greetings.
-     */
-    public static String printGreetings() {
-        return GREETINGS;
+    public Duke(String folderpath, String filepath) {
+        ui = new Ui();
+        storage = new Storage(folderpath, filepath);
+        parser = new Parser(tasks, storage);
     }
 
-    /**
-     * Prints a line wrap around the text.
-     *
-     * @param text Content getting printed.
-     */
-    public static void printLine(String text) {
-        System.out.print(LINE + text + LINE);
+    public void run()  {
+        ui.printLine(Ui.printGreetings()); //Print greetings
+        storage.createSaveFile(); //Create a save file (if one doesn't exist) to store the list of tasks
+        tasks.addAll(storage.loadSaveFile()); //Loads the list of tasks from the save file
+        while (parser.parseCommandInput()) ; //Execute a command after receiving user input
     }
-
     public static void main(String[] args) {
-        printLine(printGreetings()); //Print greetings
-        save.createSaveFile(); //Create a save file (if one doesn't exist) to store the list of tasks
-        tasks.addAll(save.loadSaveFile()); //Loads the list of tasks from the save file
-        while (command.getCommandInput()) ; //Execute a command after receiving user input
+        new Duke("data", "data/tasks.txt").run();
     }
 }
