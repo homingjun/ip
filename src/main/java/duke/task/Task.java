@@ -1,7 +1,7 @@
 package duke.task;
 
 public abstract class Task {
-    private final String description;
+    private final String DESCRIPTION;
     protected String taskType;
     private boolean isDone;
     protected static int numberOfTasks = 0;
@@ -13,7 +13,7 @@ public abstract class Task {
      * @param description Description of the task.
      */
     public Task(String description) {
-        this.description = description;
+        this.DESCRIPTION = description;
         this.isDone = false;
 
     }
@@ -49,7 +49,7 @@ public abstract class Task {
      * @return Description of task.
      */
     public String getDescription() {
-        return description;
+        return DESCRIPTION;
     }
 
     /**
@@ -84,6 +84,6 @@ public abstract class Task {
 
     @Override
     public String toString() {
-        return "[" + this.taskType + "]" + "[" + getStatusIcon() + "] " + this.description.trim();
+        return "[" + this.taskType + "]" + "[" + getStatusIcon() + "] " + this.DESCRIPTION.trim();
     }
 }

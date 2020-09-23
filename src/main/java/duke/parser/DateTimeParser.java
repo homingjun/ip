@@ -9,11 +9,11 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class DateTimeParser {
-    private static final String[] dateFormat = {"d/M/yyyy", "dd/MM/yyyy", "d/M/yy", "dd/MM/yy", "d-M-yyyy", "dd-MM-yyyy", "d-M-yy", "dd-MM-yy"};
-    private static final String[] timeFormat = {"h:m a", "hhmm a", "H:m", "HHmm"};
+    private static final String[] DATE_FORMAT = {"d/M/yyyy", "dd/MM/yyyy", "d/M/yy", "dd/MM/yy", "d-M-yyyy", "dd-MM-yyyy", "d-M-yy", "dd-MM-yy"};
+    private static final String[] TIME_FORMAT = {"h:m a", "hhmm a", "H:m", "HHmm"};
 
     public static LocalDate setDate(String date) throws DukeException {
-        for (String dateFormat : dateFormat) {
+        for (String dateFormat : DATE_FORMAT) {
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(dateFormat);
             try {
                 return LocalDate.parse(date, dateFormatter);
@@ -24,7 +24,7 @@ public class DateTimeParser {
     }
 
     public static LocalTime setTime(String time) throws DukeException {
-        for (String timeFormat : timeFormat) {
+        for (String timeFormat : TIME_FORMAT) {
             DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(timeFormat);
             try {
                 return LocalTime.parse(time, timeFormatter);

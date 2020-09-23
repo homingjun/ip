@@ -8,10 +8,10 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Deadline extends Task {
-    private final LocalDate date;
-    private final LocalTime time;
-    private final String dateString;
-    private final String timeString;
+    private final LocalDate DATE;
+    private final LocalTime TIME;
+    private final String DATE_STRING;
+    private final String TIME_STRING;
     /**
      * Sets the task description and it's task type to Deadlines.
      *
@@ -19,26 +19,26 @@ public class Deadline extends Task {
      */
     public Deadline(String description, String date, String time) throws DukeException {
         super(description);
-        this.date = DateTimeParser.setDate(date);
-        this.time = DateTimeParser.setTime(time);
-        this.dateString = date;
-        this.timeString = time;
+        this.DATE = DateTimeParser.setDate(date);
+        this.TIME = DateTimeParser.setTime(time);
+        this.DATE_STRING = date;
+        this.TIME_STRING = time;
         this.taskType = "D";
         numberOfTasks++;
     }
 
     public String getDate() {
-        return dateString;
+        return DATE_STRING;
     }
 
     public String getTime() {
-        return timeString;
+        return TIME_STRING;
     }
 
     @Override
     public String getDateAndTime() {
-        return date.format(DateTimeFormatter.ofPattern("d MMM yyyy")) + " "
-                + time.format(DateTimeFormatter.ofPattern("hh:mm a"));
+        return DATE.format(DateTimeFormatter.ofPattern("d MMM yyyy")) + " "
+                + TIME.format(DateTimeFormatter.ofPattern("hh:mm a"));
     }
 
     @Override

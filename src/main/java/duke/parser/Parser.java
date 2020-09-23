@@ -1,12 +1,13 @@
 package duke.parser;
 
+import duke.command.ByeCommand;
+import duke.command.DeadlineCommand;
+import duke.command.DeleteCommand;
+import duke.command.DoneCommand;
+import duke.command.EventCommand;
+import duke.command.FindCommand;
 import duke.command.ListCommand;
 import duke.command.TodoCommand;
-import duke.command.DeadlineCommand;
-import duke.command.EventCommand;
-import duke.command.DoneCommand;
-import duke.command.DeleteCommand;
-import duke.command.ByeCommand;
 import duke.exception.DukeException;
 import duke.task.TaskList;
 import duke.ui.Messages;
@@ -55,6 +56,9 @@ public class Parser {
                 break;
             case "delete":
                 new DeleteCommand().doCommand(tasks, userInput);
+                break;
+            case "find":
+                new FindCommand().doCommand(tasks, userInput);
                 break;
             case "bye":
                 new ByeCommand().byeCommand();

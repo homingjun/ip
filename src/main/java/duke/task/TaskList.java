@@ -3,37 +3,37 @@ package duke.task;
 import java.util.ArrayList;
 
 public class TaskList {
-    private final ArrayList<Task> tasks;
+    private final ArrayList<Task> TASKS;
 
     public TaskList() {
-        this.tasks = new ArrayList<>();
+        this.TASKS = new ArrayList<>();
     }
 
     public TaskList(ArrayList<Task> tasks) {
-        this.tasks = tasks;
+        this.TASKS = tasks;
     }
 
     public void add(Task task) {
-        tasks.add(task);
+        TASKS.add(task);
     }
 
     public void delete(int taskNumber) {
-        tasks.remove(taskNumber - 1);
+        TASKS.remove(taskNumber - 1);
     }
 
     public Task getTask(int taskNumber) {
-        return tasks.get(taskNumber - 1);
+        return TASKS.get(taskNumber - 1);
     }
 
     public int getSize() {
-        return tasks.size();
+        return TASKS.size();
     }
 
     public void addAll(ArrayList<Task> tasks) {
-        this.tasks.addAll(tasks);
+        this.TASKS.addAll(tasks);
     }
 
     public ArrayList<Task> getTaskList() {
-        return tasks;
+        return TASKS;
     }
 }

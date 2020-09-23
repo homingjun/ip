@@ -61,6 +61,23 @@ public class Ui {
         return listItems;
     }
 
+    public static String printFoundItems(TaskList tasks, String userInput) throws DukeException {
+        ArrayList<Task> taskList = tasks.getTaskList();
+        String item = userInput.substring(4).trim();
+        int taskNumber = 1;
+        String itemsFound = "";
+        for (Task t : taskList)  {
+            if (t.getDescription().contains(item)) {
+                itemsFound  += "    " + taskNumber + ". " + t + Messages.LS;
+                taskNumber++;
+            }
+        }
+        if (itemsFound.isEmpty()) {
+            throw new DukeException(Messages.ITEM_NOT_FOUND);
+        }
+        return Messages.ITEMS_FOUND + itemsFound;
+    }
+
     /**
      * Returns goodbye greeting from the bot.
      *
@@ -105,16 +122,8 @@ public class Ui {
      * @param tasks A list used to store the tasks.
      * @param userInput User input.
      * @return Newly added task in the list and the number of remaining tasks to complete.
-     * @throws DukeException If no deadline is given or deadline is invalid.
      */
-    public static String printDeadline(TaskList tasks, String userInput) throws DukeException {
-        int byIndex = userInput.indexOf("/by");
-        if (userInput.substring(8).isBlank()) {
-            throw new DukeException(Messages.NO_DEADLINE);
-        } else if (!userInput.contains("/by") || userInput.substring(8, byIndex).isBlank()
-                || userInput.substring(byIndex + 3).isBlank()) {
-            throw new DukeException(Messages.INVALID_DEADLINE);
-        }
+    public static String printDeadline(TaskList tasks, String userInput) {
         String[] deadline = userInput.substring(9).split("/by ");
         String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
         String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "] "
@@ -129,16 +138,8 @@ public class Ui {
      * @param tasks A list used to store the tasks.
      * @param userInput User input.
      * @return Newly added task in the list and the number of remaining tasks to complete.
-     * @throws DukeException If no event is given or event is invalid.
      */
-    public static String printEvent(TaskList tasks, String userInput) throws DukeException {
-        int atIndex = userInput.indexOf("/at");
-        if (userInput.substring(5).isBlank()) {
-            throw new DukeException(Messages.NO_EVENT);
-        } else if (!userInput.contains("/at") || userInput.substring(5, atIndex).isBlank()
-                || userInput.substring(atIndex + 3).isBlank()) {
-            throw new DukeException(Messages.INVALID_EVENT);
-        }
+    public static String printEvent(TaskList tasks, String userInput) {
         String[] event = userInput.substring(5).split("/at ");
         String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
         String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "]"

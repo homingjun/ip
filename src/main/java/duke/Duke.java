@@ -9,17 +9,17 @@ public class Duke {
     private static TaskList tasks;
     private static Parser parser;
     private static Storage storage;
-    private final Ui ui;
+    private final Ui UI;
 
     public Duke(String folderpath, String filepath) {
-        ui = new Ui();
+        UI = new Ui();
         storage = new Storage(folderpath, filepath);
         tasks = new TaskList();
         parser = new Parser(tasks);
     }
 
     public void run()  {
-        ui.printLine(Ui.printGreetings()); //Print greetings
+        UI.printLine(Ui.printGreetings()); //Print greetings
         storage.createSaveFile(); //Create a save file (if one doesn't exist) to store the list of tasks
         tasks.addAll(storage.loadSaveFile()); //Loads the list of tasks from the save file
         while (parser.parseCommandInput()) ; //Execute a command after receiving user input
