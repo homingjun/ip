@@ -4,8 +4,8 @@ public abstract class Task {
     private final String description;
     protected String taskType;
     private boolean isDone;
-    private static int numberOfTasks = 0;
-    private static int completedTasks = 0;
+    protected static int numberOfTasks = 0;
+    protected static int completedTasks = 0;
 
     /**
      * Sets the task description and default it's completion to false.
@@ -15,7 +15,7 @@ public abstract class Task {
     public Task(String description) {
         this.description = description;
         this.isDone = false;
-        numberOfTasks++;
+
     }
 
     /**
@@ -78,6 +78,9 @@ public abstract class Task {
     public static int getCompletedTasks() {
         return completedTasks;
     }
+
+
+    public abstract String getDateAndTime();
 
     @Override
     public String toString() {

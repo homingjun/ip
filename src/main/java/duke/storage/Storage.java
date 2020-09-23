@@ -1,6 +1,7 @@
 package duke.storage;
 
-import duke.messages.Messages;
+import duke.exception.DukeException;
+import duke.ui.Messages;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
@@ -70,10 +71,10 @@ public class Storage {
                     tasks.add(new Todo(taskInfo[2]));
                     break;
                 case "[D]":
-                    tasks.add(new Deadline(taskInfo[2], taskInfo[3]));
+                    tasks.add(new Deadline(taskInfo[2], taskInfo[3], taskInfo[4]));
                     break;
                 case "[E]":
-                    tasks.add(new Event(taskInfo[2], taskInfo[3]));
+                    tasks.add(new Event(taskInfo[2], taskInfo[3],  taskInfo[4]));
                     break;
                 default:
                     break;
@@ -86,6 +87,9 @@ public class Storage {
             return tasks;
         } catch (FileNotFoundException e) {
             Ui.printLine(Messages.CANNOT_FIND_SAVE_FILE);
+            return null;
+        } catch (DukeException e) {
+            e.printExceptionMessage();
             return null;
         }
     }
@@ -103,10 +107,10 @@ public class Storage {
                 saveWriter.append(t.getTaskType() + "|" + t.getStatusIcon() + "|" + t.getDescription().trim());
                 switch (t.getTaskType()) {
                 case "[D]":
-                    saveWriter.append("|" + ((Deadline) t).getBy());
+                    saveWriter.append("|" + ((Deadline) t).getDate() + "|" + ((Deadline) t).getTime());
                     break;
                 case "[E]":
-                    saveWriter.append("|" + ((Event) t).getAt());
+                    saveWriter.append("|" + ((Event) t).getDate() + "|" + ((Event) t).getTime());
                     break;
                 }
                 saveWriter.append(Messages.LS);

@@ -1,6 +1,5 @@
 package duke.parser;
 
-
 import duke.command.ListCommand;
 import duke.command.TodoCommand;
 import duke.command.DeadlineCommand;
@@ -9,8 +8,8 @@ import duke.command.DoneCommand;
 import duke.command.DeleteCommand;
 import duke.command.ByeCommand;
 import duke.exception.DukeException;
-import duke.messages.Messages;
 import duke.task.TaskList;
+import duke.ui.Messages;
 import duke.ui.Ui;
 
 import java.util.Scanner;
@@ -66,6 +65,7 @@ public class Parser {
         } catch (DukeException e) {
             e.printExceptionMessage();
         } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
             Ui.printLine(Messages.INVALID_NUMBER);
         } catch (NumberFormatException e) {
             Ui.printLine(Messages.NO_STRING);
