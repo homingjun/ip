@@ -11,7 +11,7 @@ public class ListCommand extends Command {
      *
      * @param tasks An arraylist of tasks.
      * @param userInput User input.
-     * @return Boolean value
+     * @return Boolean value.
      * @throws DukeException If list command is invalid.
      */
     @Override

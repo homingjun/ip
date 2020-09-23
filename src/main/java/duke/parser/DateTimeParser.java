@@ -15,9 +15,9 @@ public class DateTimeParser {
     /**
      * Returns a LocalDate date.
      *
-     * @param date the date input by the user.
-     * @return date
-     * @throws DukeException if the date is invalid.
+     * @param date The date input by the user.
+     * @return Date.
+     * @throws DukeException If the date is invalid.
      */
     public static LocalDate setDate(String date) throws DukeException {
         for (String dateFormat : DATE_FORMAT) {
@@ -33,9 +33,9 @@ public class DateTimeParser {
     /**
      * Returns a LocalTime time.
      *
-     * @param time the time input by the user.
-     * @return time
-     * @throws DukeException if the time is invalid.
+     * @param time The time input by the user.
+     * @return Time.
+     * @throws DukeException If the time is invalid.
      */
     public static LocalTime setTime(String time) throws DukeException {
         for (String timeFormat : TIME_FORMAT) {

@@ -8,6 +8,14 @@ import duke.task.TaskList;
 import duke.ui.Ui;
 
 public class EventCommand extends Command {
+    /**
+     * Returns the boolean value of the command.
+     *
+     * @param tasks An arraylist of tasks.
+     * @param userInput User input.
+     * @return Boolean value.
+     * @throws DukeException If event command is invalid.
+     */
     @Override
     public boolean doCommand(TaskList tasks, String userInput) throws DukeException {
         int atIndex = userInput.indexOf("/at");

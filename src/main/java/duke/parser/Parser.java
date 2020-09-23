@@ -32,7 +32,7 @@ public class Parser {
      * Prints the respective lines or statements based on the commands input by the user.
      * Returns the boolean value of the command.
      *
-     * @return Boolean value
+     * @return Boolean value.
      */
     public static boolean parseCommandInput () {
         String userInput = SCAN.nextLine();

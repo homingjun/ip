@@ -47,7 +47,7 @@ public class Ui {
     /**
      * Returns the tasks in the list along with the status of the task.
      *
-     * @param tasks A list used to store the tasks.
+     * @param tasks An arraylist of tasks.
      * @return List of tasks.
      */
     public static String printListItems(TaskList tasks) {
@@ -61,6 +61,14 @@ public class Ui {
         return listItems;
     }
 
+    /**
+     * Returns the matching items in the task list.
+     *
+     * @param tasks An arraylist of tasks.
+     * @param userInput User input.
+     * @return Matching list of tasks.
+     * @throws DukeException If the item is not found in the list.
+     */
     public static String printFoundItems(TaskList tasks, String userInput) throws DukeException {
         ArrayList<Task> taskList = tasks.getTaskList();
         String item = userInput.substring(4).trim();

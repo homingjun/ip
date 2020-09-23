@@ -12,6 +12,7 @@ public class Event extends Task {
     private final LocalTime TIME;
     private final String DATE_STRING;
     private final String TIME_STRING;
+
     /**
      * Sets the task description and it's task type to Events.
      *
@@ -27,14 +28,29 @@ public class Event extends Task {
         numberOfTasks++;
     }
 
+    /**
+     * Returns the date.
+     *
+     * @return Date.
+     */
     public String getDate() {
         return DATE_STRING;
     }
 
+    /**
+     * Returns the time.
+     *
+     * @return Time.
+     */
     public String getTime() {
         return TIME_STRING;
     }
 
+    /**
+     * Returns the formatted date and time.
+     *
+     * @return Date and time.
+     */
     @Override
     public String getDateAndTime() {
         return DATE.format(DateTimeFormatter.ofPattern("d MMM yyyy")) + " "
