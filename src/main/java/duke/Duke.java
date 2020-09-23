@@ -2,13 +2,11 @@ package duke;
 
 import duke.parser.Parser;
 import duke.storage.Storage;
-import duke.task.Task;
+import duke.task.TaskList;
 import duke.ui.Ui;
 
-import java.util.ArrayList;
-
 public class Duke {
-    private static final ArrayList<Task> tasks = new ArrayList<>();
+    private static TaskList tasks;
     private static Parser parser;
     private static Storage storage;
     private final Ui ui;
@@ -16,7 +14,8 @@ public class Duke {
     public Duke(String folderpath, String filepath) {
         ui = new Ui();
         storage = new Storage(folderpath, filepath);
-        parser = new Parser(tasks, storage);
+        tasks = new TaskList();
+        parser = new Parser(tasks);
     }
 
     public void run()  {

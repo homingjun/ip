@@ -2,15 +2,15 @@ package duke.command;
 
 import duke.exception.DukeException;
 import duke.storage.Storage;
-import duke.task.Task;
+import duke.task.TaskList;
 import duke.ui.Ui;
-
-import java.util.ArrayList;
 
 public class DeleteCommand extends Command {
     @Override
-    public boolean doCommand(ArrayList<Task> tasks, String userInput) throws DukeException {
-        Ui.printLine(Task.deleteTask(tasks, userInput));
+    public boolean doCommand(TaskList tasks, String userInput) throws DukeException {
+        Ui.printLine(Ui.printTaskDeletion(tasks, userInput));
+        String[] words = userInput.split(" ");
+        tasks.delete(Integer.parseInt(words[1]));
         Storage.writeSaveFile(tasks);
         return true;
     }

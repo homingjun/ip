@@ -1,9 +1,5 @@
 package duke.task;
 
-import java.util.ArrayList;
-import duke.exception.DukeException;
-import duke.messages.Messages;
-
 public abstract class Task {
     private final String description;
     protected String taskType;
@@ -81,49 +77,6 @@ public abstract class Task {
      */
     public static int getCompletedTasks() {
         return completedTasks;
-    }
-
-    /**
-     * Returns the confirmation of completing a task.
-     *
-     * @param tasks A list used to store the tasks.
-     * @param userInput User input.
-     * @return Completion of task.
-     * @throws DukeException If the list is empty.
-     */
-    public static String completeTask(ArrayList<Task> tasks, String userInput) throws DukeException {
-        if (tasks.size() == 0) {
-            throw new DukeException(Messages.NOTHING_TO_COMPLETE);
-        }
-        String[] words = userInput.split(" ");
-        tasks.get(Integer.parseInt(words[1]) - 1).markAsDone();
-        Task taskDescription = tasks.get(Integer.parseInt(words[1]) - 1);
-        return Messages.CONGRATS + "    " + taskDescription + Messages.LS;
-    }
-
-    /**
-     * Returns the confirmation of task deletion from the list.
-     *
-     * @param tasks A list used to store the tasks.
-     * @param userInput User input.
-     * @return Deletion of task.
-     * @throws DukeException If the list is empty.
-     * @throws NumberFormatException If no number is given.
-     */
-    public static String deleteTask(ArrayList<Task> tasks, String userInput)
-            throws DukeException, NumberFormatException {
-        if (tasks.size() == 0) {
-            throw new DukeException(Messages.NOTHING_TO_DELETE);
-        } else if (userInput.substring(6).isBlank()) {
-            throw new NumberFormatException();
-        }
-        String[] words = userInput.split(" ");
-        tasks.get(Integer.parseInt(words[1]) - 1).setTaskDeleted();
-        String taskDescription = tasks.get(Integer.parseInt(words[1]) - 1) + Messages.LS;
-        tasks.remove(Integer.parseInt(words[1]) - 1);
-        String tasksLeft = "    Now you have " + getNumberOfTasks()
-                + " tasks in the list." + Messages.LS;
-        return Messages.TASK_DELETED + "    " + taskDescription + tasksLeft;
     }
 
     @Override

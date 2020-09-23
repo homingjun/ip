@@ -1,10 +1,8 @@
 package duke.command;
 
 import duke.exception.DukeException;
-import duke.task.Task;
-
-import java.util.ArrayList;
+import duke.task.TaskList;
 
 public abstract class Command {
-    public abstract boolean doCommand(ArrayList<Task> tasks, String userInput) throws DukeException;
+    public abstract boolean doCommand(TaskList tasks, String userInput) throws DukeException;
 }
