@@ -5,7 +5,12 @@ import duke.task.TaskList;
 import duke.ui.Ui;
 
 public class ByeCommand extends Command {
-    public boolean byeCommand() throws DukeException {
+    /**
+     * Returns the boolean value of the command.
+     *
+     * @return Boolean value.
+     */
+    public boolean byeCommand() {
         Ui.printLine(Ui.sayGoodbye());
         return false;
     }

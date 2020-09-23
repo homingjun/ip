@@ -1,18 +1,18 @@
 package duke.ui;
 
 public class Messages {
-    /*
+    /**
     Text Formatting
      */
     public static final String LS = System.lineSeparator();
     public static final String LINE = "    ―――――――――――――――――――――――――――――――――――――――――――"
             + LS;
-    /*
+    /**
     Greetings message
      */
     public static final String GREETINGS = "          Yahallo! I'm Singlish bot! I'm here to make ur day nicer :)"
             + LS + "                          What u wan me help u do?" + LS;
-    /*
+    /**
     List messages
      */
     public static final String NOW_YOU_HAVE = "    Now you have ";
@@ -44,7 +44,7 @@ public class Messages {
     public static final String ITEM_NOT_FOUND = "    I can't find ur item in the list sia :/" + LS;
     public static final String ITEMS_FOUND = "    I found ur items le! Here they are:" + LS;
 
-    /*
+    /**
     Storage messages
      */
     public static final String CREATE_SAVE_FOLDER = "    Looks like u dun have a save folder, lemme make one now" + LS;

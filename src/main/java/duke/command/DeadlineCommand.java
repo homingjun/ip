@@ -8,6 +8,14 @@ import duke.task.TaskList;
 import duke.ui.Ui;
 
 public class DeadlineCommand extends Command{
+    /**
+     * Returns the boolean value of the command.
+     *
+     * @param tasks An arraylist of tasks.
+     * @param userInput User input.
+     * @return Boolean value.
+     * @throws DukeException If deadline command is invalid.
+     */
     @Override
     public boolean doCommand(TaskList tasks, String userInput) throws DukeException {
         int byIndex = userInput.indexOf("/by");
