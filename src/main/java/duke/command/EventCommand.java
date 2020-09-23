@@ -10,8 +10,13 @@ import duke.ui.Ui;
 public class EventCommand extends Command {
     @Override
     public boolean doCommand(TaskList tasks, String userInput) throws DukeException {
-        if (!userInput.contains("at")) {
+        int atIndex = userInput.indexOf("/at");
+        if (userInput.substring(5).isBlank()) {
+            throw new DukeException(Messages.NO_EVENT);
+        } else if (!userInput.contains("at")) {
             throw new DukeException(Messages.EVENT_NEEDS_AT);
+        } else if (userInput.substring(5, atIndex).isBlank() || userInput.substring(atIndex + 3).isBlank()) {
+            throw new DukeException(Messages.INVALID_EVENT);
         }
         String[] event = userInput.substring(5).split("/at ");
         String[] dateAndTime = event[1].split(" ", 2);
