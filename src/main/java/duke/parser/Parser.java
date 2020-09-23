@@ -1,29 +1,31 @@
 package duke.parser;
 
-import duke.command.*;
+
+import duke.command.ListCommand;
+import duke.command.TodoCommand;
+import duke.command.DeadlineCommand;
+import duke.command.EventCommand;
+import duke.command.DoneCommand;
+import duke.command.DeleteCommand;
+import duke.command.ByeCommand;
 import duke.exception.DukeException;
 import duke.messages.Messages;
-import duke.storage.Storage;
-import duke.task.Task;
+import duke.task.TaskList;
 import duke.ui.Ui;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Parser {
-    private static ArrayList<Task> tasks;
-    private final Storage storage;
+    private static TaskList tasks;
     private static final Scanner SCAN = new Scanner(System.in);
 
     /**
-     * Sets the task array and the save file to the current one.
+     * Sets the task array to the current one.
      *
      * @param tasks an array list of tasks
-     * @param storage a save file used to store the list
      */
-    public Parser(ArrayList<Task> tasks, Storage storage) {
+    public Parser(TaskList tasks) {
         this.tasks = tasks;
-        this.storage = storage;
     }
 
     /**
@@ -56,7 +58,7 @@ public class Parser {
                 new DeleteCommand().doCommand(tasks, userInput);
                 break;
             case "bye":
-                new ByeCommand().doCommand();
+                new ByeCommand().byeCommand();
                 return false;
             default:
                 Ui.printLine(Ui.invalidInput());

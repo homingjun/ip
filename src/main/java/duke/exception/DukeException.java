@@ -1,6 +1,5 @@
 package duke.exception;
 
-import duke.Duke;
 import duke.ui.Ui;
 
 public class DukeException extends Exception {

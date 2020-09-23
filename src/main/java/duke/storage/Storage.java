@@ -4,6 +4,7 @@ import duke.messages.Messages;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
+import duke.task.TaskList;
 import duke.task.Todo;
 import duke.ui.Ui;
 
@@ -94,10 +95,11 @@ public class Storage {
      *
      * @param tasks an array list of tasks
      */
-    public static void writeSaveFile(ArrayList<Task> tasks) {
+    public static void writeSaveFile(TaskList tasks) {
+        ArrayList<Task> taskList = tasks.getTaskList();
         try {
             FileWriter saveWriter = new FileWriter(dukeSaveFile);
-            for (Task t : tasks) {
+            for (Task t : taskList) {
                 saveWriter.append(t.getTaskType() + "|" + t.getStatusIcon() + "|" + t.getDescription().trim());
                 switch (t.getTaskType()) {
                 case "[D]":

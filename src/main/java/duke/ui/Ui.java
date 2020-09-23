@@ -1,15 +1,11 @@
 package duke.ui;
 
 import duke.exception.DukeException;
-import duke.task.Deadline;
-import duke.task.Event;
-import duke.task.Task;
 import duke.messages.Messages;
-import duke.task.Todo;
+import duke.task.Task;
+import duke.task.TaskList;
 
 import java.util.ArrayList;
-
-import static duke.task.Task.getNumberOfTasks;
 
 public class Ui {
     /**
@@ -55,10 +51,11 @@ public class Ui {
      * @param tasks A list used to store the tasks.
      * @return List of tasks.
      */
-    public static String printListItems(ArrayList<Task> tasks) {
+    public static String printListItems(TaskList tasks) {
+        ArrayList<Task> taskList = tasks.getTaskList();
         String listItems = "";
         int taskNumber = 1;
-        for (Task t : tasks) {
+        for (Task t : taskList) {
             listItems += "    " + taskNumber + ". " + t + Messages.LS;
             taskNumber++;
         }
@@ -91,15 +88,14 @@ public class Ui {
      * @return Newly added task in the list and the number of remaining tasks to complete.
      * @throws DukeException If the no todo is given.
      */
-    public static String printTodo(ArrayList<Task> tasks, String userInput) throws DukeException {
+    public static String printTodo(TaskList tasks, String userInput) throws DukeException {
         if (userInput.substring(4).isBlank()) {
             throw new DukeException("    Pls gimme something to do leh ._." + Messages.LS);
         }
         String todo = userInput.substring(4);
-        tasks.add(new Todo(todo));
-        String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
-        String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "]" + todo + Messages.LS;
-        String tasksLeft = "    Now you have " + getNumberOfTasks()
+        String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
+        String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "]" + todo + Messages.LS;
+        String tasksLeft = "    Now you have " + Task.getNumberOfTasks()
                 + " tasks in the list." + Messages.LS;
         return Messages.ADDED + taskType + statusIcon + tasksLeft;
     }
@@ -112,7 +108,7 @@ public class Ui {
      * @return Newly added task in the list and the number of remaining tasks to complete.
      * @throws DukeException If no deadline is given or deadline is invalid.
      */
-    public static String printDeadline(ArrayList<Task> tasks, String userInput) throws DukeException {
+    public static String printDeadline(TaskList tasks, String userInput) throws DukeException {
         int byIndex = userInput.indexOf("/by");
         if (userInput.substring(8).isBlank()) {
             throw new DukeException("    Wah u so free ah no deadlines to meet one :>" + Messages.LS);
@@ -121,11 +117,10 @@ public class Ui {
             throw new DukeException("    Ur deadline looks wrong leh pls check it" + Messages.LS);
         }
         String[] deadline = userInput.substring(9).split("/by ");
-        tasks.add(new Deadline(deadline[0], deadline[1]));
-        String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
-        String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "] "
+        String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
+        String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "] "
                 + deadline[0] + "(by: " + deadline[1] + ")" + Messages.LS;
-        String tasksLeft = "    Now you have " + getNumberOfTasks() + " tasks in the list." + Messages.LS;
+        String tasksLeft = "    Now you have " + Task.getNumberOfTasks() + " tasks in the list." + Messages.LS;
         return Messages.ADDED + taskType + statusIcon + tasksLeft;
     }
 
@@ -137,7 +132,7 @@ public class Ui {
      * @return Newly added task in the list and the number of remaining tasks to complete.
      * @throws DukeException If no event is given or event is invalid.
      */
-    public static String printEvent(ArrayList<Task> tasks, String userInput) throws DukeException {
+    public static String printEvent(TaskList tasks, String userInput) throws DukeException {
         int atIndex = userInput.indexOf("/at");
         if (userInput.substring(5).isBlank()) {
             throw new DukeException("    Why u nvr give any event sia :<" + Messages.LS);
@@ -146,13 +141,53 @@ public class Ui {
             throw new DukeException("    Ur event seems wrong sia" + Messages.LS);
         }
         String[] event = userInput.substring(5).split("/at ");
-        tasks.add(new Event(event[0], event[1]));
-        String taskType = "    " + tasks.get(getNumberOfTasks() - 1).getTaskType();
-        String statusIcon = "[" + tasks.get(getNumberOfTasks() - 1).getStatusIcon() + "]"
+        String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
+        String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "]"
                 + event[0] + "(at: " + event[1] + ")" + Messages.LS;
-        String tasksLeft = "    Now you have " + getNumberOfTasks()
+        String tasksLeft = "    Now you have " + Task.getNumberOfTasks()
                 + " tasks in the list."+ Messages.LS;
         return Messages.ADDED + taskType + statusIcon + tasksLeft;
     }
 
+    /**
+     * Returns the confirmation of completing a task.
+     *
+     * @param tasks A list used to store the tasks.
+     * @param userInput User input.
+     * @return Completion of task.
+     * @throws DukeException If the list is empty.
+     */
+    public static String printTaskCompletion(TaskList tasks, String userInput) throws DukeException {
+        if (tasks.getSize() == 0) {
+            throw new DukeException(Messages.NOTHING_TO_COMPLETE);
+        }
+        String[] words = userInput.split(" ");
+        tasks.getTask(Integer.parseInt(words[1])).markAsDone();
+        Task taskDescription = tasks.getTask(Integer.parseInt(words[1]));
+        return Messages.CONGRATS + "    " + taskDescription + Messages.LS;
+    }
+
+    /**
+     * Returns the confirmation of task deletion from the list.
+     *
+     * @param tasks A list used to store the tasks.
+     * @param userInput User input.
+     * @return Deletion of task.
+     * @throws DukeException If the list is empty.
+     * @throws NumberFormatException If no number is given.
+     */
+    public static String printTaskDeletion(TaskList tasks, String userInput)
+            throws DukeException, NumberFormatException {
+        if (tasks.getSize() == 0) {
+            throw new DukeException(Messages.NOTHING_TO_DELETE);
+        } else if (userInput.substring(6).isBlank()) {
+            throw new NumberFormatException();
+        }
+        String[] words = userInput.split(" ");
+        tasks.getTask(Integer.parseInt(words[1])).setTaskDeleted();
+        String taskDescription = tasks.getTask(Integer.parseInt(words[1])) + Messages.LS;
+        String tasksLeft = "    Now you have " + Task.getNumberOfTasks()
+                + " tasks in the list." + Messages.LS;
+        return Messages.TASK_DELETED + "    " + taskDescription + tasksLeft;
+    }
 }
