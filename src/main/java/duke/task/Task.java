@@ -5,7 +5,7 @@ public abstract class Task {
     protected String taskType;
     private boolean isDone;
     protected static int numberOfTasks = 0;
-    protected static int completedTasks = 0;
+    private static int completedTasks = 0;
 
     /**
      * Sets the task description and default it's completion to false.
@@ -36,6 +36,9 @@ public abstract class Task {
         completedTasks++;
     }
 
+    /**
+     * Deletes the task.
+     */
     public void setTaskDeleted() {
         if (isDone) {
             completedTasks--;

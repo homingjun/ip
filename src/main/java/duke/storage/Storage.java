@@ -1,12 +1,12 @@
 package duke.storage;
 
 import duke.exception.DukeException;
-import duke.ui.Messages;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.TaskList;
 import duke.task.Todo;
+import duke.ui.Messages;
 import duke.ui.Ui;
 
 import java.io.File;
@@ -24,8 +24,8 @@ public class Storage {
     /**
      * Sets the folder path and file path to the new specified path.
      *
-     * @param folderpath save folder path
-     * @param filepath save file path
+     * @param folderpath Save folder path.
+     * @param filepath Save file path.
      */
     public Storage(String folderpath, String filepath) {
         this.FOLDER_PATH = folderpath;
@@ -58,7 +58,7 @@ public class Storage {
     /**
      * Returns an array list of the tasks loaded from the save file.
      *
-     * @return array list of tasks
+     * @return Array list of tasks.
      */
     public ArrayList<Task> loadSaveFile() {
         try {
@@ -97,7 +97,7 @@ public class Storage {
     /**
      * Writes the contents of the task list to the save file's .txt file
      *
-     * @param tasks an array list of tasks
+     * @param tasks An array list of tasks.
      */
     public static void writeSaveFile(TaskList tasks) {
         ArrayList<Task> taskList = tasks.getTaskList();

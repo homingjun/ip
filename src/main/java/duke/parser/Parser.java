@@ -20,9 +20,9 @@ public class Parser {
     private static final Scanner SCAN = new Scanner(System.in);
 
     /**
-     * Sets the task array to the current one.
+     * Sets the task list to the current one.
      *
-     * @param tasks an array list of tasks
+     * @param tasks An arraylist of tasks
      */
     public Parser(TaskList tasks) {
         this.tasks = tasks;
