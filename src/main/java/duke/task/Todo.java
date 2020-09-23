@@ -9,5 +9,11 @@ public class Todo extends Task {
     public Todo(String description) {
         super(description);
         this.taskType = "T";
+        numberOfTasks++;
+    }
+
+    @Override
+    public String getDateAndTime() {
+        return null;
     }
 }

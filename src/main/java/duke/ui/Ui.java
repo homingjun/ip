@@ -1,7 +1,6 @@
 package duke.ui;
 
 import duke.exception.DukeException;
-import duke.messages.Messages;
 import duke.task.Task;
 import duke.task.TaskList;
 
@@ -90,13 +89,13 @@ public class Ui {
      */
     public static String printTodo(TaskList tasks, String userInput) throws DukeException {
         if (userInput.substring(4).isBlank()) {
-            throw new DukeException("    Pls gimme something to do leh ._." + Messages.LS);
+            throw new DukeException(Messages.NO_TODO);
         }
         String todo = userInput.substring(4);
         String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
         String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "]" + todo + Messages.LS;
-        String tasksLeft = "    Now you have " + Task.getNumberOfTasks()
-                + " tasks in the list." + Messages.LS;
+        String tasksLeft = Messages.NOW_YOU_HAVE + Task.getNumberOfTasks()
+                + Messages.TASKS_IN_LIST;
         return Messages.ADDED + taskType + statusIcon + tasksLeft;
     }
 
@@ -111,16 +110,16 @@ public class Ui {
     public static String printDeadline(TaskList tasks, String userInput) throws DukeException {
         int byIndex = userInput.indexOf("/by");
         if (userInput.substring(8).isBlank()) {
-            throw new DukeException("    Wah u so free ah no deadlines to meet one :>" + Messages.LS);
+            throw new DukeException(Messages.NO_DEADLINE);
         } else if (!userInput.contains("/by") || userInput.substring(8, byIndex).isBlank()
                 || userInput.substring(byIndex + 3).isBlank()) {
-            throw new DukeException("    Ur deadline looks wrong leh pls check it" + Messages.LS);
+            throw new DukeException(Messages.INVALID_DEADLINE);
         }
         String[] deadline = userInput.substring(9).split("/by ");
         String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
         String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "] "
-                + deadline[0] + "(by: " + deadline[1] + ")" + Messages.LS;
-        String tasksLeft = "    Now you have " + Task.getNumberOfTasks() + " tasks in the list." + Messages.LS;
+                + deadline[0] + "(by: " + tasks.getTask(Task.getNumberOfTasks()).getDateAndTime() + ")" + Messages.LS;
+        String tasksLeft = Messages.NOW_YOU_HAVE + Task.getNumberOfTasks() + Messages.TASKS_IN_LIST;
         return Messages.ADDED + taskType + statusIcon + tasksLeft;
     }
 
@@ -135,17 +134,17 @@ public class Ui {
     public static String printEvent(TaskList tasks, String userInput) throws DukeException {
         int atIndex = userInput.indexOf("/at");
         if (userInput.substring(5).isBlank()) {
-            throw new DukeException("    Why u nvr give any event sia :<" + Messages.LS);
+            throw new DukeException(Messages.NO_EVENT);
         } else if (!userInput.contains("/at") || userInput.substring(5, atIndex).isBlank()
                 || userInput.substring(atIndex + 3).isBlank()) {
-            throw new DukeException("    Ur event seems wrong sia" + Messages.LS);
+            throw new DukeException(Messages.INVALID_EVENT);
         }
         String[] event = userInput.substring(5).split("/at ");
         String taskType = "    " + tasks.getTask(Task.getNumberOfTasks()).getTaskType();
         String statusIcon = "[" + tasks.getTask(Task.getNumberOfTasks()).getStatusIcon() + "]"
-                + event[0] + "(at: " + event[1] + ")" + Messages.LS;
-        String tasksLeft = "    Now you have " + Task.getNumberOfTasks()
-                + " tasks in the list."+ Messages.LS;
+                + event[0] + "(at: " + tasks.getTask(Task.getNumberOfTasks()).getDateAndTime() + ")" + Messages.LS;
+        String tasksLeft = Messages.NOW_YOU_HAVE + Task.getNumberOfTasks()
+                + Messages.TASKS_IN_LIST;
         return Messages.ADDED + taskType + statusIcon + tasksLeft;
     }
 
@@ -186,8 +185,8 @@ public class Ui {
         String[] words = userInput.split(" ");
         tasks.getTask(Integer.parseInt(words[1])).setTaskDeleted();
         String taskDescription = tasks.getTask(Integer.parseInt(words[1])) + Messages.LS;
-        String tasksLeft = "    Now you have " + Task.getNumberOfTasks()
-                + " tasks in the list." + Messages.LS;
+        String tasksLeft = Messages.NOW_YOU_HAVE + Task.getNumberOfTasks()
+                + Messages.TASKS_IN_LIST;
         return Messages.TASK_DELETED + "    " + taskDescription + tasksLeft;
     }
 }
