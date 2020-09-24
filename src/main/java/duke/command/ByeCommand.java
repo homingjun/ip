@@ -4,7 +4,7 @@ import duke.exception.DukeException;
 import duke.task.TaskList;
 import duke.ui.Ui;
 
-public class ByeCommand extends Command {
+public class ByeCommand implements Command {
     /**
      * Returns the boolean value of the command.
      *
@@ -15,7 +15,6 @@ public class ByeCommand extends Command {
         return false;
     }
 
-    @Override
     public boolean doCommand(TaskList tasks, String userInput) throws DukeException {
         return false;
     }

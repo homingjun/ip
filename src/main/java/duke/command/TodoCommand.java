@@ -7,7 +7,7 @@ import duke.task.Todo;
 import duke.ui.Ui;
 
 
-public class TodoCommand  extends Command {
+public class TodoCommand implements Command {
     /**
      * Returns the boolean value of the command.
      *
@@ -16,7 +16,6 @@ public class TodoCommand  extends Command {
      * @return Boolean value.
      * @throws DukeException If todo command is invalid.
      */
-    @Override
     public boolean doCommand(TaskList tasks, String userInput) throws DukeException {
         String todo = userInput.substring(4);
         tasks.add(new Todo(todo));

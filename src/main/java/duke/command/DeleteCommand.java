@@ -5,7 +5,7 @@ import duke.storage.Storage;
 import duke.task.TaskList;
 import duke.ui.Ui;
 
-public class DeleteCommand extends Command {
+public class DeleteCommand implements Command {
     /**
      * Returns the boolean value of the command.
      *
@@ -14,7 +14,6 @@ public class DeleteCommand extends Command {
      * @return Boolean value.
      * @throws DukeException If delete command is invalid.
      */
-    @Override
     public boolean doCommand(TaskList tasks, String userInput) throws DukeException {
         Ui.printLine(Ui.printTaskDeletion(tasks, userInput));
         String[] words = userInput.split(" ");
