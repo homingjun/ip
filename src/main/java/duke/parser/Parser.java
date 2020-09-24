@@ -40,29 +40,21 @@ public class Parser {
         try {
             switch (commandInput[0].toLowerCase()) {
             case "list":
-                new ListCommand().doCommand(tasks, userInput);
-                break;
+                return new ListCommand().doCommand(tasks, userInput);
             case "todo":
-                new TodoCommand().doCommand(tasks, userInput);
-                break;
+                return new TodoCommand().doCommand(tasks, userInput);
             case "deadline":
-                new DeadlineCommand().doCommand(tasks, userInput);
-                break;
+                return new DeadlineCommand().doCommand(tasks, userInput);
             case "event":
-                new EventCommand().doCommand(tasks, userInput);
-                break;
+                return new EventCommand().doCommand(tasks, userInput);
             case "done":
-                new DoneCommand().doCommand(tasks, userInput);
-                break;
+                return new DoneCommand().doCommand(tasks, userInput);
             case "delete":
-                new DeleteCommand().doCommand(tasks, userInput);
-                break;
+                return new DeleteCommand().doCommand(tasks, userInput);
             case "find":
-                new FindCommand().doCommand(tasks, userInput);
-                break;
+                return new FindCommand().doCommand(tasks, userInput);
             case "bye":
-                new ByeCommand().byeCommand();
-                return false;
+                return new ByeCommand().byeCommand();
             default:
                 Ui.printLine(Ui.invalidInput());
             }
