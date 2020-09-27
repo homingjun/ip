@@ -15,7 +15,7 @@ public class Duke {
      * Creates a new storage file and sets the folder path and file path to the new specified path.
      * Create a tasklist and parse the tasks.
      *
-     * @param folderpath Save folder path.
+     * @param folderpath Save folder path.w
      * @param filepath Save file path.
      */
     public Duke(String folderpath, String filepath) {
