@@ -208,7 +208,7 @@ If no such directory or file is found, a new directory and save file `..\data\ta
 ```
 ## Command Summary
 Action | Description | Syntax 
------- | ----------- | ------
+--- | --- | ---
 todo | Creates a todo task and adds it to the list. | `todo <description>`
 deadline | Creates a deadline and adds it to the list. | `deadline <description> /by <date> <time>`
 event | Creates an event and adds it to the list. | `event <description> /at <date> <time>`
