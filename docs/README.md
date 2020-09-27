@@ -207,14 +207,15 @@ If no such directory or file is found, a new directory and save file `..\data\ta
     ―――――――――――――――――――――――――――――――――――――――――――
 ```
 ## Command Summary
-**Action** | **Description** | **Syntax**  
---- | --- | ---  
-**todo** | Creates a todo task and adds it to the list. | `todo <description>`  
-**deadline** | Creates a deadline and adds it to the list. | `deadline <description> /by <date> <time>`  
-**event** | Creates an event and adds it to the list. | `event <description> /at <date> <time>`  
-**list** | Lists out all the items currently in the list. | `list`  
-**done** | Sets the status of a specified task to done. | `done <task number>` 
-**find** | Searches the list based on the given keyword and returns all matching items. | `find <item description>`  
-**delete** | Deletes a specified item from the list. | `delete <task number>`  
-**bye** | Goodbye greeting is given by the bot and list is saved before exiting the program. | `bye`   
+
+| **Action** | **Description** | **Syntax** |
+| --- | --- | --- |
+| **todo** | Creates a todo task and adds it to the list. | `todo <description>` |
+| **deadline** | Creates a deadline and adds it to the list. | `deadline <description> /by <date> <time>` |
+| **event** | Creates an event and adds it to the list. | `event <description> /at <date> <time>` |
+| **list** | Lists out all the items currently in the list. | `list` |
+| **done** | Sets the status of a specified task to done. | `done <task number>` |
+| **find** | Searches the list based on the given keyword and returns all matching items. | `find <item description>` |
+| **delete** | Deletes a specified item from the list. | `delete <task number>` |
+| **bye** | Goodbye greeting is given by the bot and list is saved before exiting the program. | `bye` |
 
