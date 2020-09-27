@@ -216,5 +216,5 @@ If no such directory or file is found, a new directory and save file `..\data\ta
 **done** | Sets the status of a specified task to done. | `done <task number>` 
 **find** | Searches the list based on the given keyword and returns all matching items. | `find <item description>`  
 **delete** | Deletes a specified item from the list. | `delete <task number>`  
-**bye** | Goodbye greeting is given by the bot and list is saved before exiting the program. | `bye`  
+**bye** | Goodbye greeting is given by the bot and list is saved before exiting the program. | `bye`   
 
