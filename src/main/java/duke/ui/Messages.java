@@ -5,7 +5,7 @@ public class Messages {
     Text Formatting
      */
     public static final String LS = System.lineSeparator();
-    public static final String LINE = "    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    public static final String LINE = "    ―――――――――――――――――――――――――――――――――――――――――――"
             + LS;
     /**
     Greetings message
