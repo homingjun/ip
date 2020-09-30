@@ -36,7 +36,7 @@ Prerequisites: JDK 11, update Intellij to the most recent version.
 
 Prerequisites: JDK 11
 
-1. Download `SinglishBot.jar` from [here](https://github.com/homingjun/ip/releases/download/A-Jar/SinglishBot.jar).
+1. Download `SinglishBot.jar` from [here](https://github.com/homingjun/ip/releases/download/A-Release/SinglishBot.jar).
 1. Copy the jar file into an empty folder.
 1. Setup the command prompt as follows:
     1. Open a command window in that folder.
