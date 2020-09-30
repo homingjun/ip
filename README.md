@@ -154,7 +154,7 @@ Example: `find assignment`
 
 ### 7. `Delete` an item from the list.
 Deletes a specified item from the list.  
-Syntax: `delete <task number>` 
+Syntax: `delete <task number>`  
 Example: `delete 3`
 ```
     ―――――――――――――――――――――――――――――――――――――――――――
@@ -190,7 +190,7 @@ The list is automatically loaded from `..\data\tasks.txt` once the program start
     I found ur file le! :D
     ―――――――――――――――――――――――――――――――――――――――――――
 ```  
-If no such directory or file is found, a new directory and save file `..\data\tasks.txt` will be created.
+If no such directory or file is found, a new directory and save file `..\data\tasks.txt` is created.
 ```
     ―――――――――――――――――――――――――――――――――――――――――――
           Yahallo! I'm Singlish bot! I'm here to make ur day nicer :)
