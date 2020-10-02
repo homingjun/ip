@@ -3,6 +3,15 @@
                           What u wan me help u do?
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
+    Looks like u dun have a save folder, lemme make one now
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
+    I made a folder for u here: C:\Test\ip\text-ui-test\data
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
+    I can't find any save file here, lemme make one now
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
     Your list still empty eh please add sth leh
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
@@ -12,61 +21,74 @@
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U haven't done any tasks yet... U shud start soon!
-    1.[T][✘] eat breakfast
+    1. [T][✘] eat breakfast
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     Ok I add this task to ur list liao:
-    [E][✘] SEP Talk (at: 8pm)
+    [E][✘] SEP Talk (at: 11 Sep 2020 08:00 AM)
     Now you have 2 tasks in the list.
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U haven't done any tasks yet... U shud start soon!
-    1.[T][✘] eat breakfast
-    2.[E][✘] SEP Talk (at: 8pm)
+    1. [T][✘] eat breakfast
+    2. [E][✘] SEP Talk (at: 11 Sep 2020 08:00 AM)
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     Congrats on completing this task! U damn ups :D
-    [✓]  eat breakfast
+    [T][✓] eat breakfast
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U still got some tasks left to do. Jia you!
-    1.[T][✓] eat breakfast
-    2.[E][✘] SEP Talk (at: 8pm)
+    1. [T][✓] eat breakfast
+    2. [E][✘] SEP Talk (at: 11 Sep 2020 08:00 AM)
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
+    Your date like wrong eh
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     Ok I add this task to ur list liao:
-    [D][✘] Finish Repl assignments (by: Sunday 11pm)
+    [D][✘] Finish Repl assignments (by: 1 Oct 2020 09:00 PM)
     Now you have 3 tasks in the list.
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U still got some tasks left to do. Jia you!
-    1.[T][✓] eat breakfast
-    2.[E][✘] SEP Talk (at: 8pm)
-    3.[D][✘] Finish Repl assignments (by: Sunday 11pm)
+    1. [T][✓] eat breakfast
+    2. [E][✘] SEP Talk (at: 11 Sep 2020 08:00 AM)
+    3. [D][✘] Finish Repl assignments (by: 1 Oct 2020 09:00 PM)
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     Congrats on completing this task! U damn ups :D
-    [✓]  SEP Talk (at: 8pm)
+    [E][✓] SEP Talk (at: 11 Sep 2020 08:00 AM)
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     U still got some tasks left to do. Jia you!
-    1.[T][✓] eat breakfast
-    2.[E][✓] SEP Talk (at: 8pm)
-    3.[D][✘] Finish Repl assignments (by: Sunday 11pm)
+    1. [T][✓] eat breakfast
+    2. [E][✓] SEP Talk (at: 11 Sep 2020 08:00 AM)
+    3. [D][✘] Finish Repl assignments (by: 1 Oct 2020 09:00 PM)
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     Congrats on completing this task! U damn ups :D
-    [✓]  Finish Repl assignments (by: Sunday 11pm)
+    [D][✓] Finish Repl assignments (by: 1 Oct 2020 09:00 PM)
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
+    Err I think u enter wrong task number sia, it's not in the list
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     Ok I deleted it liao
-    [D][✓]  Finish Repl assignments (by: Sunday 11pm)
+    [D][✓] Finish Repl assignments (by: 1 Oct 2020 09:00 PM)
     Now you have 2 tasks in the list.
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     Wah u finished all ur tasks! Nice la!
-    1.[T][✓] eat breakfast
-    2.[E][✓] SEP Talk (at: 8pm)
+    1. [T][✓] eat breakfast
+    2. [E][✓] SEP Talk (at: 11 Sep 2020 08:00 AM)
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
+    I can't find ur item in the list sia :/
+    ―――――――――――――――――――――――――――――――――――――――――――
+    ―――――――――――――――――――――――――――――――――――――――――――
+    I found ur items le! Here they are:
+    1. [E][✓] SEP Talk (at: 11 Sep 2020 08:00 AM)
     ―――――――――――――――――――――――――――――――――――――――――――
     ―――――――――――――――――――――――――――――――――――――――――――
     I can't understand what u saying eh, can say properly?
